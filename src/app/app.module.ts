@@ -10,11 +10,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { SignInButtonComponent } from './components/sign-in-button/sign-in-button.component';
+
+import { MatButtonModule }  from '@angular/material/button';
+import { SignInViewComponent } from './components/sign-in-view/sign-in-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputLoginComponent
+    InputLoginComponent,
+    SignInButtonComponent,
+    SignInViewComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

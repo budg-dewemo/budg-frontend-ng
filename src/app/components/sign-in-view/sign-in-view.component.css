@@ -1,0 +1,49 @@
+html {
+    background-image: linear-gradient(
+  130deg,
+  hsl(217deg 79% 65%) 0%,
+  hsl(231deg 80% 71%) 20%,
+  hsl(284deg 38% 65%) 40%,
+  hsl(338deg 49% 69%) 60%,
+  hsl(11deg 82% 74%) 80%,
+  hsl(34deg 99% 73%) 100%
+);
+
+    font-family: Karla, sans-serif;
+    color: white;
+}
+
+.glass{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, .45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+     backdrop-filter: blur(15px);
+}
+
+.greeting{
+    width: 292px;
+    height: 90px;
+
+    position: absolute;
+    top: 127px;
+
+    margin:auto;
+}
+
+.hello{
+    height: 30px;
+    width: 251px;
+    font-weight: 800;
+    font-size: 42px;
+    
+}
+
+.question{
+    height: 24px;
+    width: 280px;
+    font-weight: 600;
+    font-size: 20px;
+
+}
