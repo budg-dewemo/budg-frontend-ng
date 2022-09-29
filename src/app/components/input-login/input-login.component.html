@@ -1,10 +1,9 @@
 <div>
     <input class="input-login" placeholder="E-mail or username" type="text" id="username" name="username" />
 </div>
-  <div class="password">
+<div class="password">
     <input class="input-login custom-password"  placeholder="Password" matInput [type]="showPassword ? 'text' : 'password'" name="password">
     <mat-icon class="pass-visibility" matSuffix (click)="togglePasswordVisibility()">
         {{showPassword?'visibility_off':'visibility'}}
       </mat-icon>
-  </div>
-  
+</div>  

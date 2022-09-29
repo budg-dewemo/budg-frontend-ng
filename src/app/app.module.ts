@@ -12,13 +12,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SignInButtonComponent } from './components/sign-in-button/sign-in-button.component';
 import { SignInViewComponent } from './components/sign-in-view/sign-in-view.component';
+import { LoginCommponentComponent } from './components/login-commponent/login-commponent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputLoginComponent,
     SignInButtonComponent,
-    SignInViewComponent
+    SignInViewComponent,
+    LoginCommponentComponent
   ],
   imports: [
     BrowserModule,
