@@ -8,9 +8,9 @@
 
 .login-box {
     display: flex;
-    margin-top: 282pt;
+    /* margin-top: 282pt;
     margin-right: 26pt;
-    align-items: center;
+    align-items: center; */
     justify-content: center;
     flex-direction: column;
 }
