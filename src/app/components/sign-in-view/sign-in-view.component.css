@@ -22,7 +22,7 @@ html {
      backdrop-filter: blur(15px);
 }
 
-.greeting{
+/* .greeting{
     width: 292px;
     height: 90px;
 
@@ -30,7 +30,7 @@ html {
     top: 127px;
 
     margin:auto;
-}
+} */
 
 .hello{
     height: 30px;
@@ -47,3 +47,30 @@ html {
     font-size: 20px;
 
 }
+
+/* .login-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} */
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    align-content: start
+  }
+  .container:after {
+    display: block;
+    content: " placeholder ";
+    margin: 7px;
+    flex: 999 999 auto;
+  }
+  .item {
+    flex: 1 0 auto;
+    margin: 7px;
+    margin-top: 40pt;
+  }

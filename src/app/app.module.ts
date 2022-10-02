@@ -13,6 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { SignInButtonComponent } from './components/sign-in-button/sign-in-button.component';
 import { SignInViewComponent } from './components/sign-in-view/sign-in-view.component';
 import { LoginCommponentComponent } from './components/login-commponent/login-commponent.component';
+import { FormsModule } from '@angular/forms';
+import { ToastNotifComponent } from './components/toast-notif/toast-notif.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,8 @@ import { LoginCommponentComponent } from './components/login-commponent/login-co
     InputLoginComponent,
     SignInButtonComponent,
     SignInViewComponent,
-    LoginCommponentComponent
+    LoginCommponentComponent,
+    ToastNotifComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,11 @@ import { LoginCommponentComponent } from './components/login-commponent/login-co
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
