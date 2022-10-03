@@ -1,0 +1,62 @@
+.toolbarNav {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  padding: 2em;
+  background-color: white;
+  border-radius: 17px;
+
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  box-shadow: 2px 2px 4px 5px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+button:hover,
+.active-link {
+  color: #7d89f0;
+}
+
+.buttons {
+  width: 700px;
+  min-width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.list, .reports{
+    color: #2D2A3E;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  margin-bottom: 60px;
+  width: 86.79px;
+  height: 88px;
+  border-radius: 50%;
+  filter: drop-shadow(0px 4px 60px rgba(0, 0, 0, 0.25));
+  background: linear-gradient(
+    130deg,
+    hsl(217deg 79% 65%) 0%,
+    hsl(231deg 80% 71%) 20%,
+    hsl(284deg 38% 65%) 40%,
+    hsl(338deg 49% 69%) 60%,
+    hsl(11deg 82% 74%) 80%,
+    hsl(34deg 99% 73%) 100%
+  );
+}
+
+.plus {
+  width: 60px;
+  height: 60px;
+  color: #ffffff;
+  font-size: 50px;
+}
