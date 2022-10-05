@@ -15,13 +15,31 @@ export class TransactionListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTransactions();
-    
+    // this.sortTransactionsByAmountAsc();
   }
 
   getTransactions() {
     this.transactionService.getTransactions().subscribe(data => {
+      data.sort((a, b) => {
+        return b.date.getDate() - a.date.getDate();
+      });
       this.transactions = data;
     });
   }
+
+  // No se porque no me está andando
+  sortTransactionsByDateAsc() {
+    this.transactions?.sort((a, b) => {
+      return a.date.getTime() - b.date.getTime();
+    });
+  }
+
+  sortTransactionsByNameAsc() {
+    this.transactions?.sort((a, b) => {
+      return a.description.localeCompare(b.description);
+    });
+  }
+
+  
 
 }
