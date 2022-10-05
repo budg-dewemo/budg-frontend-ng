@@ -1,0 +1,53 @@
+div {
+  color: #2D2A3E;
+
+}
+.transaction {
+  width: 328px;
+  height: 86px;
+  background: #ffffff;
+  border-radius: 17px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tx-category {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #40a5e8 0%, #3fa5e8 54.17%, #0a69a8 100%);
+  display: flex;
+}
+
+.tx-category-icon {
+  margin: auto;
+  color: #ffffff;
+}
+
+.tx-info {
+  width: 229px;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.tx-name{
+  font-family: 'Karla';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 18px;
+
+}
+
+.tx-value{
+  font-family: 'Inconsolata';
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 13px;
+}

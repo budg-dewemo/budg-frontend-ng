@@ -1,0 +1,19 @@
+.transaction-list{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.transaction{
+    padding: 16px;
+}
+
+@media (max-width: 768px) {
+    .transaction-list{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

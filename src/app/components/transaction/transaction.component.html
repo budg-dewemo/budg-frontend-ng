@@ -1,0 +1,9 @@
+<div class="transaction">
+    <div class="tx-category" [style.background]="getColorFromCategoryId(transaction?.categoryId)">
+        <mat-icon class="tx-category-icon">{{ getIconFromCategoryId(transaction?.categoryId) }}</mat-icon>
+    </div>
+    <div class="tx-info">
+        <div class="tx-name">{{ transaction?.description }}</div>
+        <div class="tx-value">${{ transaction?.amount }}</div>
+    </div>
+</div>
