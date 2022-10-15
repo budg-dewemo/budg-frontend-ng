@@ -1,6 +1,7 @@
 import { Category } from "../models/category";
 
 export function static getIconFromCategoryId(categoryId: number) {
+
     switch (categoryId) {
         case 1:
             return 'payments';
@@ -17,4 +18,5 @@ export function static getIconFromCategoryId(categoryId: number) {
         case 7:
             return 'receipt_long';
 
-}}
+    }
+}

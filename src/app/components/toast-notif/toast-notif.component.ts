@@ -16,7 +16,7 @@ export class ToastNotifComponent implements OnInit {
 
 // Snackbar that opens with success background
 openSuccessSnackBar(msg: string){
-  this.snackBar.open("Login Successful", "", {
+  this.snackBar.open(msg, "", {
     duration: 3000,
     verticalPosition: 'top',
     horizontalPosition: 'right',

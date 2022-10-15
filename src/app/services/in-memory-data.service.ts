@@ -2,6 +2,7 @@ import { Transaction } from '../models/transaction.model';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
 import { Observable } from 'rxjs';
+import { UserLogin, UserLoginResponse } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 10, userId: 2, budgetId: 1, amount: 1223.45, description: 'Pedidos Ya', categoryId: 2, date: new Date()}
     ];
 
-    return {transactions};
+    const login: UserLoginResponse = {token: 'qweqw1231231qweqw'};
+
+    return {transactions, login};
   }
+
 
 
 }

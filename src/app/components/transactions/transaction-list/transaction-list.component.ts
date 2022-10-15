@@ -1,6 +1,6 @@
 import { TransactionService } from 'src/app/services/transaction.service';
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from '../models/transaction.model';
+import { Transaction } from '../../../models/transaction.model';
 
 @Component({
   selector: 'app-transaction-list',
@@ -20,9 +20,9 @@ export class TransactionListComponent implements OnInit {
 
   getTransactions() {
     this.transactionService.getTransactions().subscribe(data => {
-      data.sort((a, b) => {
-        return b.date.getDate() - a.date.getDate();
-      });
+      // data.sort((a, b) => {
+      //   return b.date.getDate() - a.date.getDate();
+      // });
       this.transactions = data;
     });
   }
