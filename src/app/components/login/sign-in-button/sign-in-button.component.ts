@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, Directive } from '@angular/core';
 import { UserLogin, UserLoginResponse } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login.service';
-import { ToastNotifComponent } from '../toast-notif/toast-notif.component';
+import { ToastNotifComponent } from '../../toast-notif/toast-notif.component';
 import {
   CanActivate, Router,
   ActivatedRouteSnapshot,
