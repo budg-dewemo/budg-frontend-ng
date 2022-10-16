@@ -28,7 +28,12 @@ import { TransactionComponent } from './components/transactions/transaction/tran
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
 import { BottomNavbarComponent } from './components/dashboard/bottom-navbar/bottom-navbar.component';
 import { ExpenseInputComponent } from './components/expense/expense-input/expense-input.component';
-
+import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
+import { MatOption, MatOptionModule, MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ExpenseAddComponent } from './components/expense/expense-add/expense-add.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,10 @@ import { ExpenseInputComponent } from './components/expense/expense-input/expens
     TransactionComponent,
     TransactionListComponent,
     BottomNavbarComponent,
-    ExpenseInputComponent
+    ExpenseInputComponent,
+    DashboardViewComponent,
+    ExpenseViewComponent,
+    ExpenseAddComponent
   ],
   imports: [
     BrowserModule,
@@ -59,8 +67,12 @@ import { ExpenseInputComponent } from './components/expense/expense-input/expens
     HttpClientModule,
     MatProgressSpinnerModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+      InMemoryDataService, { dataEncapsulation: false },
+    ),
+    MatOptionModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
