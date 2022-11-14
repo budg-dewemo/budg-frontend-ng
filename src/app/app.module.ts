@@ -28,12 +28,18 @@ import { TransactionComponent } from './components/transactions/transaction/tran
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
 import { BottomNavbarComponent } from './components/dashboard/bottom-navbar/bottom-navbar.component';
 import { ExpenseInputComponent } from './components/expense/expense-input/expense-input.component';
-import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
+// import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
 import { MatOption, MatOptionModule, MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
+// import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { ExpenseAddComponent } from './components/expense/expense-add/expense-add.component';
+import { ReportsViewComponent } from './components/reports/reports-view/reports-view.component';
+// import { ExpenseAddComponent } from './components/expense/expense-add/expense-add.component';
+
+import { NgChartsModule } from 'ng2-charts';
+import { WeekSpendingsComponent } from './components/reports/week-spendings/week-spendings.component';
+import { MonthlySpendingsComponent } from './components/reports/monthly-spendings/monthly-spendings.component';
+
 
 @NgModule({
   declarations: [
@@ -48,9 +54,12 @@ import { ExpenseAddComponent } from './components/expense/expense-add/expense-ad
     TransactionListComponent,
     BottomNavbarComponent,
     ExpenseInputComponent,
-    DashboardViewComponent,
-    ExpenseViewComponent,
-    ExpenseAddComponent
+    ReportsViewComponent,
+    WeekSpendingsComponent,
+    MonthlySpendingsComponent
+    // DashboardViewComponent,
+    // ExpenseViewComponent,
+    // ExpenseAddComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +81,8 @@ import { ExpenseAddComponent } from './components/expense/expense-add/expense-ad
     MatOptionModule,
     MatSelectModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

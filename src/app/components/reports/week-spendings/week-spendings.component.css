@@ -1,0 +1,49 @@
+.report {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 450px;
+  box-shadow: 0px 4px 50px rgba(30, 15, 62, 0.2);
+  border-radius: 12px;
+}
+
+canvas {
+  filter: drop-shadow(0px 4px 30px rgba(0, 0, 0, 0.1));
+  width: 450px;
+}
+
+.title {
+  z-index: 2000;
+  color: "#2D2A3E";
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+}
+
+@media (max-width: 1068px) {
+  .report {
+    width: 450px;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .report {
+    width: 400px;
+    height: auto;
+  }
+  .title {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report {
+    width: 350px;
+    height: auto;
+  }
+}
