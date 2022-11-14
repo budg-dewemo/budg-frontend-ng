@@ -25,7 +25,16 @@ export class WeekSpendingsComponent implements OnInit {
   }
 
   public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: false,
+    layout: {
+      padding: {
+        left: 15,
+        right: 15,
+        top: 0,
+        bottom: 0
+      }},
+    responsive: true,
+    maintainAspectRatio: true,
+    
     plugins: {
       legend: {
         position: 'left',
@@ -68,4 +77,7 @@ export class WeekSpendingsComponent implements OnInit {
   public pieChartPlugins = [];
  
 
+  getChartOptions() {
+    // this.pieChartDatasets.[0].data = this.chartOptions.datasets[0].data;
+  }
 }

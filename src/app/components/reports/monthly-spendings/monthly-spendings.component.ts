@@ -21,11 +21,26 @@ export class MonthlySpendingsComponent implements OnInit {
   public barChartPlugins = [];
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+    labels: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'June',
+      'July',
+      'Aug',
+      'Sept',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
     datasets: [
       {
-        data: [65, 59, 80, 81, 56, 55, 40, 56, 45, 33, 90, 102],
-        // label: null,
+        data: [
+          6500, 5998, 8034, 8123, 5605, 5500, 4045, 5689, 4511, 3350, 9002, 10200
+        ],
+
         backgroundColor: [
           '#3ACE64',
           '#7D89F0',
@@ -37,25 +52,41 @@ export class MonthlySpendingsComponent implements OnInit {
           '#51DFC6',
         ],
         borderRadius: 10,
+        barThickness: 15,
+        borderWidth: 0
       },
     ],
   };
 
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
-    responsive: false,
+    layout: {
+      padding: {
+        left: 15,
+        right: 15,
+        top: 0,
+        bottom: 0,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: true,
     plugins: {
       legend: {
         display: false,
-        labels:
-          {
-            color: 'white'
-          }
+        labels: {
+          color: 'white',
+          boxHeight: 0,
+          boxWidth: 0,
+        },
       },
       tooltip: {
         backgroundColor: '#2D2A3E',
         usePointStyle: true,
-        boxHeight: 5,
-        boxPadding: 5,
+        boxHeight: 10,
+        boxPadding: 10,
+        titleFont: {
+          family: 'Inconsolata',
+          
+        },
         bodyFont: {
           family: 'Inconsolata',
         },
@@ -96,4 +127,9 @@ export class MonthlySpendingsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  //TO-DO: GET data from API
+  // getChartOptions() {
+
+  // }
 }
