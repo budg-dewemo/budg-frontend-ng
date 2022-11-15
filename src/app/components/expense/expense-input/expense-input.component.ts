@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-expense-input',
@@ -6,20 +8,58 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense-input.component.css']
 })
 export class ExpenseInputComponent implements OnInit {
-  selected = "";
-  constructor() { }
 
-  options: string[] = ['Op1', 'Op2', 'Op3'];
-  startDate = new Date();
-  // get current date
+//@Output() private formEvent = new EventEmitter<any>();
+
+expenseForm: FormGroup = new FormGroup({});
+
+constructor(private formBuilder: FormBuilder, private router: Router ) {
+  this.expenseForm = this.formBuilder.group({
+    amount: ['', Validators.required],
+    type: ['', Validators.required],
+    description: ['', Validators.required],
+    categoryId: ['', Validators.required],
+    date: ['', Validators.required],
+    file: ['', Validators.required],
+  });  
+}
+
+transactionTypes: Array<any> = [
+  { id: 1, name: 'Expense' },
+  { id: 2, name: 'Income' },
+];
+
+categories: Array<any> = [
+  { value: 1, label: 'Food' },
+  { value: 2, label: 'Transportation' },
+  { value: 3, label: 'Entertainment' },
+  { value: 4, label: 'Health' },
+  { value: 5, label: 'Clothing' },
+  { value: 6, label: 'Miscellaneous' },
+];
+
+ngOnInit(): void {
   
-  ngOnInit(): void {
-  }
+}
 
-  getIconFromCategoryId(categoryId: number | undefined) {
-    switch (categoryId) {
-      case 1:
-        return 'payments';
+addTransaction() {
+  const transaction = {
+    amount: this.expenseForm.value.amount,
+    type: this.expenseForm.value.type,
+    description: this.expenseForm.value.description,
+    categoryId: this.expenseForm.value.categoryId,
+    date: this.expenseForm.value.date,
+    file: this.expenseForm.value.file,
+  };
+
+  console.log(transaction);
+  
+}
+
+getIconFromCategoryId(categoryId: number | undefined) {
+  switch (categoryId) {
+    case 1:
+      return 'payments';
       case 2:
         return 'restaurant';
       case 3:
@@ -37,3 +77,5 @@ export class ExpenseInputComponent implements OnInit {
     }
   }
 }
+
+

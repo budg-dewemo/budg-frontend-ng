@@ -10,17 +10,17 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { }
 
-  private url = 'api/transactions';
+  private url = 'https://budg-api.nicocartalla.com/api/v1/expenses';
 
-  getTransactions(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.url);
-    
-    //Obtener el id del user y llamar al otro endpoint
-    // return this.getTransactionsByBudgetId(1);
+  private headers = {
+    'Access-Control-Allow-Origin': 'http://localhost:4200',
+  };
+
+  getTransactions(): Observable<any> {
+    return this.http.get<any>(this.url);
   }
 
-  // getTransactionByUserId(userId: number): Observable<Transaction[]> {
-  //   return this.http.get<Transaction[]>(`${this.url}/?userId=${userId}`);
-  // }
-
+  addTransaction(transaction: any): Observable<Transaction> {
+    return this.http.post<Transaction>(this.url, transaction);
+  }
 }

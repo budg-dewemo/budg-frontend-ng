@@ -11,7 +11,8 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   private apiLoginUrl = 'api/login';
-  //private apiLoginUrl = 'https://reqres.in/api/login';
+  // private url = 'https://budg-api.nicocartalla.com/api/v1/authenticate';
+  
   private httpOptions = {
     headers: {
       'Content-Type': 'application/json'
