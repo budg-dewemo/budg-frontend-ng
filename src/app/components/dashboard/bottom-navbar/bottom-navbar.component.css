@@ -13,8 +13,8 @@
   margin-top: 148px;
 }
 
-button:hover,
-.active-link {
+mat-icon:hover {
+  cursor: pointer;
   color: #7d89f0;
 }
 
@@ -60,4 +60,5 @@ button {
   height: 60px;
   color: #ffffff;
   font-size: 50px;
+  margin-top: 8px;
 }

@@ -1,7 +1,8 @@
+import { AuthInterceptor } from './auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -28,10 +29,10 @@ import { TransactionComponent } from './components/transactions/transaction/tran
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
 import { BottomNavbarComponent } from './components/dashboard/bottom-navbar/bottom-navbar.component';
 import { ExpenseInputComponent } from './components/expense/expense-input/expense-input.component';
-// import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
+
 import { MatOption, MatOptionModule, MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-// import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReportsViewComponent } from './components/reports/reports-view/reports-view.component';
 // import { ExpenseAddComponent } from './components/expense/expense-add/expense-add.component';
@@ -39,6 +40,9 @@ import { ReportsViewComponent } from './components/reports/reports-view/reports-
 import { NgChartsModule } from 'ng2-charts';
 import { WeekSpendingsComponent } from './components/reports/week-spendings/week-spendings.component';
 import { MonthlySpendingsComponent } from './components/reports/monthly-spendings/monthly-spendings.component';
+import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
+import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
+import { AddButtonComponent } from './components/expense/add-button/add-button.component';
 
 
 @NgModule({
@@ -56,10 +60,12 @@ import { MonthlySpendingsComponent } from './components/reports/monthly-spending
     ExpenseInputComponent,
     ReportsViewComponent,
     WeekSpendingsComponent,
-    MonthlySpendingsComponent
-    // DashboardViewComponent,
-    // ExpenseViewComponent,
-    // ExpenseAddComponent
+    MonthlySpendingsComponent,
+    DashboardViewComponent,
+    ExpenseViewComponent,
+    DashboardViewComponent,
+    ExpenseViewComponent,
+    AddButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,20 +77,20 @@ import { MonthlySpendingsComponent } from './components/reports/monthly-spending
     MatIconModule,
     MatButtonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSnackBarModule,
     MatToolbarModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false },
-    ),
     MatOptionModule,
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
     NgChartsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
