@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 
+
 import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,11 +37,19 @@ import { DashboardViewComponent } from './components/dashboard/dashboard-view/da
 import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
 import { AddButtonComponent } from './components/expense/add-button/add-button.component';
 import { ReportsViewComponent } from './components/reports/reports-view/reports-view.component';
+import { SignInViewComponent } from './components/login/sign-in-view/sign-in-view.component';
+import { LoginCommponentComponent } from './components/login/login-component/login-commponent.component';
+import { InputLoginComponent } from './components/login/input-login/input-login.component';
+import { SignInButtonComponent } from './components/login/sign-in-button/sign-in-button.component';
+import { ToastNotifComponent } from './components/toast-notif/toast-notif.component';
 
 import { AuthInterceptor } from './auth.interceptor';
+import { SidenavComponent } from './components/common/sidenav/sidenav.component';
+import { SettingsViewComponent } from './components/settings/settings-view/settings-view.component';
+import { UserSettingsBannerComponent } from './components/settings/user-settings-banner/user-settings-banner.component';
 //import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 
-import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
+
 
 
 
@@ -56,10 +66,16 @@ import { DashboardViewComponent } from './components/dashboard/dashboard-view/da
     MonthlySpendingsComponent,
     DashboardViewComponent,
     ExpenseViewComponent,
-    DashboardViewComponent,
     ExpenseViewComponent,
     AddButtonComponent,
-    // SidenavComponent,
+    SignInViewComponent,
+    LoginCommponentComponent,
+    InputLoginComponent,
+    SignInButtonComponent,
+    ToastNotifComponent,
+    SidenavComponent,
+    SettingsViewComponent,
+    UserSettingsBannerComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +98,7 @@ import { DashboardViewComponent } from './components/dashboard/dashboard-view/da
     NgChartsModule,
     MatSidenavModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

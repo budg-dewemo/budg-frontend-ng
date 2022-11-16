@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
 // import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
-// import { InputLoginComponent } from './auth/login/input-login/input-login.component';
-// import { LoginCommponentComponent } from './auth/login/login-component/login-commponent.component';
-// import { SignInViewComponent } from './auth/login/sign-in-view/sign-in-view.component';
 
 import { InputLoginComponent } from './components/login/input-login/input-login.component';
 import { LoginCommponentComponent } from './components/login/login-component/login-commponent.component';
@@ -13,7 +10,8 @@ import { SignInViewComponent } from './components/login/sign-in-view/sign-in-vie
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
 import { DashboardViewComponent } from './components/dashboard/dashboard-view/dashboard-view.component';
 import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
-// import { AuthGuard } from './guards/auth.guard';
+import { SettingsViewComponent } from './components/settings/settings-view/settings-view.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -27,16 +25,24 @@ const routes: Routes = [
   },
   {
     path: 'reports',
+    // canActivate: [AuthGuard],
     component: ReportsViewComponent
   },
   {
     path: 'dashboard',
+    // canActivate: [AuthGuard],
     component: DashboardViewComponent
   },
   {
     path: 'expense',
+    // canActivate: [AuthGuard],
     component: ExpenseViewComponent
-  }
+  },
+  {
+    path: 'settings',
+    // canActivate: [AuthGuard],
+    component: SettingsViewComponent
+  },
 ];
 
 @NgModule({

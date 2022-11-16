@@ -37,6 +37,7 @@ export class LoginService {
   }
 
   public isLoggedIn() {
+    console.log(this.getExpiration().toDate());
     return moment().isBefore(this.getExpiration());
   }
 
