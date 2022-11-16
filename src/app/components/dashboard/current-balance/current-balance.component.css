@@ -116,3 +116,53 @@ mat-icon {
     padding-left: 7px;
     
 }
+
+@media screen and (min-width: 1366px) {
+  .bkg-card {
+    width: 478px;
+    height: 257px;
+  }
+
+  .balance-card {
+    width: 468px;
+    height: 257px;
+    left: 25px;
+    top: -227px;
+  }
+
+  .current-balance-text {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .current-balance-value {
+    font-size: 60px;
+    line-height: 69px;
+  }
+
+  .income-expenses {   
+    width: 406px;
+    height: 49px;
+  }
+
+  .icon-circle {
+    width: 39px;
+    height: 39px;
+  }
+
+  .mat-icon {
+    font-size: 30px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
+
+  .text-group {
+    padding-left: 10px;
+  }
+}

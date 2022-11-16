@@ -1,31 +1,52 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from "rxjs";
-import { UserLogin, UserLoginResponse } from '../models/user.model';
+import { catchError, Observable, shareReplay, tap } from 'rxjs';
+import * as moment from 'moment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  private url = 'https://budg-api.nicocartalla.com/api/v1/authenticate';
 
-  private apiLoginUrl = 'api/login';
-  // private url = 'https://budg-api.nicocartalla.com/api/v1/authenticate';
-  
   private httpOptions = {
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   };
 
-
-  login(user: UserLogin): Observable<UserLoginResponse> {
-     
-    //return this.http.post<UserLoginResponse>(this.apiLoginUrl, user, this.httpOptions)
-    // return fake data
-    return this.http.get<UserLoginResponse>(this.apiLoginUrl);
+  login(username: string, password: string) {
+    return this.http.post<any>(this.url, { username, password }).pipe(
+      tap((res) => this.setSession(res)),
+      shareReplay()
+    );
   }
 
+  private setSession(authResult: any) {
+    const expiresAt = moment().add(authResult.expiresIn, 'second');
 
+    localStorage.setItem('token', authResult.token);
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expires_at');
+  }
+
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  isLoggedOut() {
+    return !this.isLoggedIn();
+  }
+
+  getExpiration() {
+    const expiration = localStorage.getItem('expires_at') as string;
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
+  }
 }

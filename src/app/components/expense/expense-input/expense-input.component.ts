@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Category } from 'src/app/models/category';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-expense-input',
@@ -8,13 +10,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./expense-input.component.css']
 })
 export class ExpenseInputComponent implements OnInit {
+  
+  
+  expenseForm: FormGroup = new FormGroup({});
+  
+  transactionTypes: Array<any> = [
+    { id: 1, name: 'Expense' },
+    { id: 2, name: 'Income' },
+  ];
+  
+  //TO-DO: check how stop using any type
+  categories: Array<any> = [
 
-//@Output() private formEvent = new EventEmitter<any>();
+  ];
 
-expenseForm: FormGroup = new FormGroup({});
-
-constructor(private formBuilder: FormBuilder, private router: Router ) {
-  this.expenseForm = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder, private router: Router, private transactionService: TransactionService) {
+    this.expenseForm = this.formBuilder.group({
     amount: ['', Validators.required],
     type: ['', Validators.required],
     description: ['', Validators.required],
@@ -24,23 +35,11 @@ constructor(private formBuilder: FormBuilder, private router: Router ) {
   });  
 }
 
-transactionTypes: Array<any> = [
-  { id: 1, name: 'Expense' },
-  { id: 2, name: 'Income' },
-];
-
-categories: Array<any> = [
-  { value: 1, label: 'Food' },
-  { value: 2, label: 'Transportation' },
-  { value: 3, label: 'Entertainment' },
-  { value: 4, label: 'Health' },
-  { value: 5, label: 'Clothing' },
-  { value: 6, label: 'Miscellaneous' },
-];
-
 ngOnInit(): void {
-  
+  this.getCategories();
 }
+
+
 
 addTransaction() {
   const transaction = {
@@ -55,6 +54,16 @@ addTransaction() {
   console.log(transaction);
   
 }
+
+getCategories() {
+  this.transactionService.getCategories().subscribe((res) => {
+    for (let i = 0; i < res.length; i++) {
+      this.categories.push({ id: res[i].id, label: res[i].name });
+    }
+  });
+}
+
+ 
 
 getIconFromCategoryId(categoryId: number | undefined) {
   switch (categoryId) {
