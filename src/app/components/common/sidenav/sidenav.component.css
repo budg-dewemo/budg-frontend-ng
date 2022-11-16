@@ -1,0 +1,88 @@
+mat-toolbar {
+  background: #fafafa;
+  color: #2d2a3e;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #2d2a3e;
+  color: #fafafa;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+
+  
+
+}
+
+.content {
+  margin-left: 32px; 
+  font-size: 2rem;
+  color: #fafafa;
+  display: flex;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  font-family: 'Karla', sans-serif;
+}
+
+.menu-button:hover {
+  background: #fafafa;
+  color: #2d2a3e;
+}
+
+.active-button {
+  background: #fafafa;
+  color: #2d2a3e;
+}
+
+.menu-button mat-icon {
+  margin-right: 8px;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.logo {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 292px;
+  letter-spacing: -0.15em;
+}
+
+.avatar img{
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 0px;
+    justify-content: center;
+  }
+}
+    
+.name {
+    font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+}

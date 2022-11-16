@@ -27,8 +27,8 @@
             <mat-form-field class="exp-input" appearance="fill">
                 <mat-label>Category</mat-label>
                 <mat-select formControlName="categoryId">
-                  <mat-option *ngFor="let option of categories" [value]="option.value">
-                    {{option.label}}
+                  <mat-option *ngFor="let category of categories" [value]="category.id">
+                    {{category.label}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>

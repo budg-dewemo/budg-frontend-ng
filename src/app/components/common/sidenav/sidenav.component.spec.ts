@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToastNotifComponent } from './toast-notif.component';
+import { SidenavComponent } from './sidenav.component';
 
-describe('ToastNotifComponent', () => {
-  let component: ToastNotifComponent;
-  let fixture: ComponentFixture<ToastNotifComponent>;
+describe('SidenavComponent', () => {
+  let component: SidenavComponent;
+  let fixture: ComponentFixture<SidenavComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToastNotifComponent ]
+      declarations: [ SidenavComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ToastNotifComponent);
+    fixture = TestBed.createComponent(SidenavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
