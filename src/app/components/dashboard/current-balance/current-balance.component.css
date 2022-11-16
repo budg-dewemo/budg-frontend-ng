@@ -1,3 +1,6 @@
+.component {
+  max-height: 300px;
+}
 .bkg-card {
   width: 342px;
   height: 184px;
@@ -118,6 +121,9 @@ mat-icon {
 }
 
 @media screen and (min-width: 1366px) {
+  .component {
+    min-height: 200px;
+  }
   .bkg-card {
     width: 478px;
     height: 257px;
