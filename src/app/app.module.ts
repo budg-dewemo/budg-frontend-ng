@@ -46,7 +46,14 @@ import { ToastNotifComponent } from './components/toast-notif/toast-notif.compon
 import { AuthInterceptor } from './auth.interceptor';
 import { SidenavComponent } from './components/common/sidenav/sidenav.component';
 import { SettingsViewComponent } from './components/settings/settings-view/settings-view.component';
-import { UserSettingsBannerComponent } from './components/settings/user-settings-banner/user-settings-banner.component';
+import { UserSettingsBannerComponent } from './components/settings/settings-view/user-settings-banner/user-settings-banner.component';
+import { GoButtonComponent } from './components/common/go-button/go-button.component';
+import { AccountSettingsComponent } from './components/settings/settings-view/account-settings/account-settings.component';
+import { BudgetSettingsBannerComponent } from './components/settings/settings-view/budget-settings-banner/budget-settings-banner.component';
+import { BudgetSettingsComponent } from './components/settings/settings-view/budget-settings/budget-settings.component';
+import { SetBudgetViewComponent } from './components/settings/set-budget/set-budget-view/set-budget-view.component';
+import { SetBudgetFormComponent } from './components/settings/set-budget/set-budget-input/set-budget-input.component';
+import { SetBudgetButtonComponent } from './components/settings/set-budget/set-budget-button/set-budget-button.component';
 //import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 
 
@@ -76,6 +83,13 @@ import { UserSettingsBannerComponent } from './components/settings/user-settings
     SidenavComponent,
     SettingsViewComponent,
     UserSettingsBannerComponent,
+    GoButtonComponent,
+    AccountSettingsComponent,
+    BudgetSettingsBannerComponent,
+    BudgetSettingsComponent,
+    SetBudgetViewComponent,
+    SetBudgetFormComponent,
+    SetBudgetButtonComponent,
   ],
   imports: [
     BrowserModule,
