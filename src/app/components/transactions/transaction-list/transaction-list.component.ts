@@ -40,6 +40,10 @@ export class TransactionListComponent implements OnInit {
     });
   }
 
+  onScroll() {
+    console.log('scrolled!!');
+  }
+
   
 
 }

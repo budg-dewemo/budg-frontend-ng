@@ -56,8 +56,7 @@ import { SetBudgetFormComponent } from './components/settings/set-budget/set-bud
 import { SetBudgetButtonComponent } from './components/settings/set-budget/set-budget-button/set-budget-button.component';
 //import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 
-
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -113,6 +112,7 @@ import { SetBudgetButtonComponent } from './components/settings/set-budget/set-b
     MatSidenavModule,
     MatDividerModule,
     MatProgressSpinnerModule,
+    InfiniteScrollModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

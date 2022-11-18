@@ -6,4 +6,5 @@ export interface Transaction {
   description: string;
   categoryId: number;
   date: Date;
+  file: string;
 }

@@ -1,4 +1,4 @@
-<div class="transaction-list">
+<div class="transaction-list" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
     <div *ngFor="let transaction of transactions" class="transaction">
         <app-transaction [transaction]="transaction"></app-transaction>
     </div>

@@ -17,6 +17,7 @@ export class TransactionComponent implements OnInit {
     description: 'Pizza with friends',
     budgetId: 1,
     userId: 1,
+    file: ''
   };
   
   
@@ -36,10 +37,18 @@ export class TransactionComponent implements OnInit {
       case 4:
         return 'celebration';
       case 5:
-        return 'health_and_safety';
+        return 'lightbulb';
       case 6:
-        return 'shopping_bag';
+        return 'health_and_safety';
       case 7:
+        return 'checkroom';
+      case 8:
+        return 'school';
+      case 9:
+        return 'savings';
+      case 10:
+        return 'shopping_bag';
+      case 11: 
         return 'receipt_long';
       default:
         return 'question_mark';

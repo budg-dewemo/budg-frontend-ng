@@ -51,3 +51,47 @@ font-weight: 600;
 font-size: 12px;
 line-height: 13px;
 }
+
+/* @media screen and (min-width: 1068px) {
+  .transaction {
+    width: 500px;
+  }
+
+  .tx-category {
+    width: 62px;
+    height: 62px;
+  }
+
+  .tx-name{
+    font-size: 20px;
+  }
+} */
+  
+
+@media screen and (max-width: 380px) {
+  .transaction {
+    width:250px;
+    height: 50px;
+    border-radius: 7px;
+  }
+
+  .tx-category{
+    width: 30px;
+    height: 30px;
+  }
+
+  .tx-category-icon{
+    font-size: 20px;
+  }
+
+  .tx-info{
+    width: 150px;
+    height: 30px;
+  }
+
+  .tx-name{
+    font-size: 10px;
+    font-weight: 600;
+  }
+}
+  
