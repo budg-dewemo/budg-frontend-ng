@@ -1,0 +1,14 @@
+button {
+  width: 41px;
+  height: 41px;
+  background: #2d2a3e;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button mat-icon {
+  color: #ffffff;
+}

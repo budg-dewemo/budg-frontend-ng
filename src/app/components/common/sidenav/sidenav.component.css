@@ -18,6 +18,8 @@ mat-sidenav {
 }
 
 .content {
+  height: 95%;
+  width: 95%;
   margin-left: 32px; 
   font-size: 2rem;
   color: #fafafa;

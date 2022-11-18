@@ -12,6 +12,7 @@ import { DashboardViewComponent } from './components/dashboard/dashboard-view/da
 import { ExpenseViewComponent } from './components/expense/expense-view/expense-view.component';
 import { SettingsViewComponent } from './components/settings/settings-view/settings-view.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SetBudgetViewComponent } from './components/settings/set-budget/set-budget-view/set-budget-view.component';
 
 const routes: Routes = [
   {
@@ -41,7 +42,15 @@ const routes: Routes = [
   {
     path: 'settings',
     // canActivate: [AuthGuard],
-    component: SettingsViewComponent
+    children: [
+      {
+        path: '',
+        component: SettingsViewComponent
+      },
+      {
+        path: 'set-budget',
+        component: SetBudgetViewComponent
+      }]
   },
 ];
 
