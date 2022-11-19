@@ -1,0 +1,174 @@
+.component {
+  max-height: 300px;
+}
+.bkg-card {
+  width: 342px;
+  height: 184px;
+  background: linear-gradient(
+    136.4deg,
+    #3fa5e8 12.48%,
+    #8087f1 34.82%,
+    #fa927b 63.02%,
+    #ffd172 81.69%
+  );
+  border-radius: 31px;
+}
+
+.balance-card {
+  width: 332px;
+  height: 184px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.16) 95.83%
+  );
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(20px);
+  border-radius: 31px;
+
+  position: relative;
+  left: 17px;
+  top: -164px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* Within card */
+.current-balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.current-balance-text {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+.current-balance-value {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 49px;
+  color: #ffffff;
+}
+
+.income-expenses {
+  width: 274px;
+  height: 34px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.expenses,
+.income {
+  display: flex;
+}
+
+.icon-circle {
+  background: #d9d9d9;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+mat-icon {
+  font-size: 20px;
+  padding: 3px;
+}
+
+.up {
+  color: #69c947;
+}
+
+.down {
+  color: #c24f48;
+}
+
+.text {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 13px;
+  color: #5a5480;
+}
+
+.value {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 5px;
+  color: #5a5480;
+}
+
+.text-group {
+    padding-left: 7px;
+    
+}
+
+@media screen and (min-width: 1366px) {
+  .component {
+    min-height: 200px;
+  }
+  .bkg-card {
+    width: 478px;
+    height: 257px;
+  }
+
+  .balance-card {
+    width: 468px;
+    height: 257px;
+    left: 25px;
+    top: -227px;
+  }
+
+  .current-balance-text {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .current-balance-value {
+    font-size: 60px;
+    line-height: 69px;
+  }
+
+  .income-expenses {   
+    width: 406px;
+    height: 49px;
+  }
+
+  .icon-circle {
+    width: 39px;
+    height: 39px;
+  }
+
+  .mat-icon {
+    font-size: 30px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
+
+  .text-group {
+    padding-left: 10px;
+  }
+}

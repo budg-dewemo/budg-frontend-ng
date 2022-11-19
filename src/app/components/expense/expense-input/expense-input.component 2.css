@@ -1,0 +1,228 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.expense {
+  width: 328px;
+  height: 59px;
+  background: #ffffff;
+  border-radius: 17px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.amount {
+  width: 241px;
+  height: 64px;
+  border-radius: 40px;
+}
+
+.exp-icon {
+  margin: auto;
+  color: #2d2a3e;
+}
+
+.exp-input {
+  width: 241px;
+  height: 56px;
+  display: flex;
+  border-radius: 40px;
+  border: none;
+
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+
+  color: #2d2a3e;
+
+  left:-10px;
+
+}
+
+.amount-input {
+  width: 50px;
+  height: 64px;
+  left: 76px;
+  top: 154px;
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 29px;
+
+  text-align: center;
+  border: none;
+  background: #ffffff;
+  border-radius: 17px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-amount {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 29px;
+  width: 100pt;
+  border: none;
+  background: -webkit-linear-gradient(
+    130deg,
+    hsl(217deg 79% 65%) 0%,
+    hsl(231deg 80% 71%) 20%,
+    hsl(284deg 38% 65%) 40%,
+    hsl(338deg 49% 69%) 60%,
+    hsl(11deg 82% 74%) 80%,
+    hsl(34deg 99% 73%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.text-amount::input[type="text"] {
+  text-align: center;
+}
+
+input.currency:before {
+  content: attr(data-symbol);
+  float: left;
+  color: #aaa;
+}
+
+*:focus {
+  outline: none;
+}
+
+.amount {
+  height: 64px;
+  left: 76px;
+  top: 154px;
+  background: #ffffff;
+  border-radius: 40pt;
+  box-shadow: 0px 3px 10px rgb(0 0 0 / 10%);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 20pt;
+  align-content: stretch;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+select > .placeholder {
+  display: none;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #ffffff;
+  width: 250px;
+  height: 56px;
+}
+
+.mat-icon {
+  vertical-align: middle;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  text-align: center;
+}
+
+.text-amount::placeholder {
+  text-align: center;
+}
+
+.file-input {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='17' ry='17' stroke='%23A5A3A3FF' stroke-width='4' stroke-dasharray='9' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+  border-radius: 17px;
+  box-shadow: none;
+  display: flex;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-btn {
+  font-family: "Karla", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #717171;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 160px;
+}
+
+.add-file{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31px;
+    height: 31px;
+    border-radius: 50px;
+    background-color: #2d2a3e;
+    margin-right: 13px;
+}
+
+.add-icon{
+    color: #ffffff;
+}
+
+mat-form-field .exp-input{
+    left: -20px;
+}
+
+.date-input{
+    left: -70px;
+}
+
+.add {
+    width: 328px;
+    height: 57px;
+    background: linear-gradient(
+      136.4deg,
+      #3fa5e8 12.48%,
+      #8087f1 34.82%,
+      rgba(250, 146, 123, 0.79) 73.64%,
+      rgba(255, 209, 114, 0.81) 82.79%
+    );
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.12);
+    border-radius: 14px;
+    border: none;
+  
+    font-family: "Karla";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+  
+    color: #ffffff;
+
+    margin-top: 70px;
+  }
+

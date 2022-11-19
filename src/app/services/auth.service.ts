@@ -6,7 +6,7 @@ import * as moment from 'moment';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class AuthService {
   constructor(private http: HttpClient) {}
 
   private url = 'https://budg-api.nicocartalla.com/api/v1/authenticate';

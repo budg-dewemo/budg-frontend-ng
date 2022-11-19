@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './services/login.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,10 @@ import { LoginService } from './services/login.service';
 export class AppComponent implements OnInit {
   title = 'budg-frontend-ng';
 
-  constructor(public router: Router, private loginService: LoginService) {}
+  constructor(public router: Router, private authService: AuthService) {}
 
   ngOnInit() {
-    if (this.loginService.isLoggedIn()) {
+    if (this.authService.isLoggedIn()) {
       this.router.navigate(['/dashboard']);
     }
   }

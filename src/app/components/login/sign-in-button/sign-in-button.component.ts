@@ -1,5 +1,5 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit, Input, ViewChild, Directive } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
 import { ToastNotifComponent } from '../../toast-notif/toast-notif.component';
 import {
   CanActivate,
@@ -21,7 +21,7 @@ export class SignInButtonComponent implements OnInit {
   @Input() password: string = '';
   @ViewChild(ToastNotifComponent) notif!: ToastNotifComponent;
 
-  constructor(public loginService: LoginService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     
@@ -29,7 +29,7 @@ export class SignInButtonComponent implements OnInit {
 
   signIn() {
     this.isLoading = true;
-    this.loginService
+    this.authService
       .login(this.username, this.password)
       .subscribe((data) => {
         this.isLoading = false;

@@ -1,0 +1,16 @@
+.view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* width: 100vw; */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+app-budget-settings {
+    margin-top: 32px;
+}
