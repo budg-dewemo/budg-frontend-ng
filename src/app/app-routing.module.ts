@@ -21,27 +21,27 @@ const routes: Routes = [
   },
   {
     path: 'transactions',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: TransactionListComponent
   },
   {
     path: 'reports',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: ReportsViewComponent
   },
   {
     path: 'dashboard',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: DashboardViewComponent
   },
   {
     path: 'expense',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: ExpenseViewComponent
   },
   {
     path: 'settings',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',

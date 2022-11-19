@@ -4,7 +4,7 @@ import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-week-spendings',
-  templateUrl: './week-spendings.component.html',
+  templateUrl: './week-spendings.component 2.html',
   styleUrls: ['./week-spendings.component.css']
 })
 export class WeekSpendingsComponent implements OnInit {

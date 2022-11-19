@@ -6,8 +6,8 @@ import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-expense-input',
-  templateUrl: './expense-input.component.html',
-  styleUrls: ['./expense-input.component.css']
+  templateUrl: './expense-input.component 2.html',
+  styleUrls: ['./expense-input.component 2.css']
 })
 export class ExpenseInputComponent implements OnInit {
   

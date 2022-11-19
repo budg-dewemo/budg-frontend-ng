@@ -1,5 +1,4 @@
 export enum Category {
-
     Income = 1,
     Food = 2,
     Transport = 3,

@@ -32,7 +32,6 @@ export class SignInButtonComponent implements OnInit {
     this.loginService
       .login(this.username, this.password)
       .subscribe((data) => {
-        console.log(this.loginService.isLoggedIn());
         this.isLoading = false;
         this.router.navigate(['/dashboard']);
       });
