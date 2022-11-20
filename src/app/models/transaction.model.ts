@@ -1,10 +1,10 @@
 export interface Transaction {
-  id: number;
-  userId: number;
+  id?: number;
   budgetId: number;
   amount: number;
   description: string;
   categoryId: number;
+  type: string;
   date: Date;
-  file: string;
+  filePath: string;
 }
