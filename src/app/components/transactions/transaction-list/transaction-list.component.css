@@ -1,8 +1,6 @@
 .transaction-list{
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
 }
 
 .transaction{
@@ -12,8 +10,7 @@
 @media (max-width: 768px) {
     .transaction-list{
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+
     }
 
 }

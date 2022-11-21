@@ -8,52 +8,136 @@
   color: #2d2a3e;
 }
 
-    
 
-.container {  display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-template-rows: 0.2fr 0.9fr;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  grid-template-areas:
-  "Title last-transactions"
-  "balance Transactions";
+.angry-grid {
+  display: grid; 
+
+  grid-template-rows: 0.1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  
+  gap: 10px;
+  margin-top: 60px;
+  height: 90vh;
+  
+}
+ 
+#item-0 {
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 2;
+  grid-column-end: 4;
+  /* background-color: brown; */
+  
 }
 
-.Title { grid-area: Title; }
-
-.balance { grid-area: balance; }
-
-.Transactions { grid-area: Transactions; }
-
-.last-transactions { grid-area: last-transactions; }
-
-.last-transactions h5 {
+#item-0 h2 {
   font-family: "Karla";
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 50px;
   line-height: 58px;
-  margin-bottom: 0px;
   color: #2d2a3e;
 }
+#item-1 {
+  grid-row-start: 1;
+  grid-column-start: 4;
 
-@media screen and (max-width: 768px) {
-  .welcome h2 {
-    font-size: 30px;
+  grid-row-end: 2;
+  grid-column-end: 6;
+  
+}
+
+#item-1 h5 {
+  /* background-color: pink; */
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 58px;
+  color: #2d2a3e;
+  margin-left: 20px;
+}
+#item-2 {
+
+  /* background-color: yellow;  */
+  grid-row-start: 2;
+  grid-column-start: 4;
+
+  grid-row-end: 5;
+  grid-column-end: 6;
+  
+}
+#item-3 {
+  /* background-color: aquamarine; */
+  grid-row-start: 2;
+  grid-column-start: 1;
+
+  grid-row-end: 4;
+  grid-column-end: 4;
+  
+}
+#item-4 {
+
+  /* background-color: green;  */
+  grid-row-start: 4;
+  grid-column-start: 1;
+
+  grid-row-end: 5;
+  grid-column-end: 4;
+  
+}
+
+@media screen and (max-width: 920px) {
+  .angry-grid {
+    gap: 5px;
+  }
+  #item-0 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    grid-row-end: 2;
+    grid-column-end: 5;
+  }
+  #item-1 {
+    grid-row-start: 3;
+    grid-column-start: 1;
+
+    grid-row-end: 4;
+    grid-column-end: 6;
+  }
+  #item-2 {
+    grid-row-start: 4;
+    grid-column-start: 1;
+
+    grid-row-end: 5;
+    grid-column-end: 6;
+  }
+  #item-3 {
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: 3;
+    grid-column-end: 6;
+  }
+  
+  #item-4 {
+    grid-row-start: 5;
+    grid-column-start: 1;
+
+    grid-row-end: 6;
+    grid-column-end: 6;
+    display: none;
   }
 
-  .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 0.9fr;
-    gap: 5px 5px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "Title"
-      "balance"
-      "last-transactions"
-      "Transactions";
+  #item1 h5 .latest{
+    color: red;
+  }
+
+  .welcome {
+    font-size: 40px;
   }
 }
+
+
     

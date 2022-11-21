@@ -4,20 +4,17 @@ import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-week-spendings',
-  templateUrl: './week-spendings.component.html',
+  templateUrl: './week-spendings.component 2.html',
   styleUrls: ['./week-spendings.component.css']
 })
 export class WeekSpendingsComponent implements OnInit {
-  @Input() chartOptions = {
-    labels: [],
-    datasets: [
-      {
-        data: [],
-        backgroundColor: [],
-      }
-    ],
-  } 
+  
+  @Input() chartData = {
+    labels: ['Food', 'Rent' , 'Entertainment', 'Holidays', 'Clothing', 'Bills', 'Miscellaneous', 'Custom expenses'],
+    data: [300, 500, 100, 400, 500, 600, 500, 700]
+  }
 
+  colors : string[] = ['#3ACE64', '#7D89F0', '#E9918C', '#FFD172', '#E88740', '#DF51C0', '#40A5E8',  '#51DFC6'];
 
   constructor() { }
 
@@ -67,11 +64,11 @@ export class WeekSpendingsComponent implements OnInit {
     }
   }
 }
-  public pieChartLabels = [ 'Food', 'Rent' , 'Entertainment', 'Holidays', 'Clothing', 'Bills', 'Miscellaneous', 'Custom expenses'];
+  public pieChartLabels = this.chartData.labels;
   public pieChartDatasets = [ {
-    data: [ 300, 500, 100, 400, 500, 600, 500, 700],
-    backgroundColor: [ '#3ACE64', '#7D89F0', '#E9918C', '#FFD172', '#E88740', '#DF51C0', '#40A5E8',  '#51DFC6'],
-    borderColor: [ '#3ACE64', '#7D89F0', '#E9918C', '#FFD172', '#E88740', '#DF51C0', '#40A5E8',  '#51DFC6'],
+    data: this.chartData.data,
+    backgroundColor: this.colors,
+    borderColor: this.colors,
   } ];
   public pieChartLegend = true;
   public pieChartPlugins = [];

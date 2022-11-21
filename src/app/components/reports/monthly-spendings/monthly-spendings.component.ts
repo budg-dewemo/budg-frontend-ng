@@ -7,53 +7,49 @@ import { ChartConfiguration } from 'chart.js';
   styleUrls: ['./monthly-spendings.component.css'],
 })
 export class MonthlySpendingsComponent implements OnInit {
-  @Input() chartOptions = {
-    labels: [],
-    datasets: [
-      {
-        data: [],
-        backgroundColor: [],
-      },
-    ],
-  };
+
+  @Input() chartData = {
+    labels: [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',], 
+    data: [6500, 5998, 8034, 8123, 5605, 5500, 4045, 5689, 4511, 3350, 9002,10200]
+  }
+
+  colors : string[] = [
+    '#3ACE64',
+    '#7D89F0',
+    '#E9918C',
+    '#FFD172',
+    '#E88740',
+    '#DF51C0',
+    '#40A5E8',
+    '#51DFC6',
+  ];
+
 
   public barChartLegend = true;
   public barChartPlugins = [];
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {
-    labels: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'June',
-      'July',
-      'Aug',
-      'Sept',
-      'Oct',
-      'Nov',
-      'Dec',
-    ],
+    labels: this.chartData.labels,
     datasets: [
       {
-        data: [
-          6500, 5998, 8034, 8123, 5605, 5500, 4045, 5689, 4511, 3350, 9002, 10200
-        ],
+        data: this.chartData.data,
 
-        backgroundColor: [
-          '#3ACE64',
-          '#7D89F0',
-          '#E9918C',
-          '#FFD172',
-          '#E88740',
-          '#DF51C0',
-          '#40A5E8',
-          '#51DFC6',
-        ],
+        backgroundColor: this.colors,
         borderRadius: 10,
         barThickness: 15,
-        borderWidth: 0
+        borderWidth: 0,
       },
     ],
   };
@@ -73,7 +69,7 @@ export class MonthlySpendingsComponent implements OnInit {
       legend: {
         display: false,
         labels: {
-          color: 'white',
+          color: '#f8f8f8',
           boxHeight: 0,
           boxWidth: 0,
         },
@@ -85,14 +81,13 @@ export class MonthlySpendingsComponent implements OnInit {
         boxPadding: 10,
         titleFont: {
           family: 'Inconsolata',
-          
         },
         bodyFont: {
           family: 'Inconsolata',
         },
         callbacks: {
           labelTextColor: function (context) {
-            return 'white';
+            return '#f8f8f8';
           },
         },
       },

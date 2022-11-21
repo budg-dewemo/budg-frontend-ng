@@ -19,11 +19,14 @@ mat-sidenav {
 
 .content {
   height: 95%;
+  max-height: 800px;
   width: 95%;
   margin-left: 32px; 
   font-size: 2rem;
   color: #fafafa;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 mat-sidenav-container {
@@ -75,16 +78,26 @@ mat-divider {
     border-radius: 50%;
 }
 
-@media screen and (max-width: 768px) {
-  .content {
-    margin-left: 0px;
-    justify-content: center;
-  }
-}
-    
 .name {
     font-family: 'Karla', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 20px;
 }
+
+@media screen and (max-width: 1280) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+  
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin-left: 10px;
+    justify-content: center;
+  }
+}
+    

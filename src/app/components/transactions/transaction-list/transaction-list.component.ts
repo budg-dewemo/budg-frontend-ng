@@ -1,13 +1,15 @@
 import { TransactionService } from 'src/app/services/transaction.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Transaction } from '../../../models/transaction.model';
 
 @Component({
   selector: 'app-transaction-list',
-  templateUrl: './transaction-list.component.html',
+  templateUrl: './transaction-list.component 2.html',
   styleUrls: ['./transaction-list.component.css']
 })
 export class TransactionListComponent implements OnInit {
+
+ @Input() totalTransactionsToDisplay: number = 10; 
 
   transactions: Transaction[] | undefined = [];
 
@@ -38,6 +40,10 @@ export class TransactionListComponent implements OnInit {
     this.transactions?.sort((a, b) => {
       return a.description.localeCompare(b.description);
     });
+  }
+
+  onScroll() {
+    console.log('scrolled!!');
   }
 
   

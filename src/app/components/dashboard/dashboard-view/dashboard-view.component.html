@@ -1,9 +1,15 @@
-
-
-      <div class="container welcome">
-        <div class="Title"><h2 class="hello welcome">Hello, {{user.name}}!</h2></div>
-        <div class="balance"><app-current-balance class="current-balance"></app-current-balance></div>
-        <div class="Transactions"><app-transaction-list></app-transaction-list></div>
-        <div class="last-transactions"><h5>Latest transactions</h5></div>
-        
+      <div class="angry-grid">
+        <div id="item-0">
+          <h2 class="welcome">Hello, {{user.name}}!</h2>
+        </div>
+        <div id="item-1">
+          <h5 class="latest">Latest transactions</h5>
+        </div>
+        <div id="item-2">
+          <app-transaction-list></app-transaction-list>
+        </div>
+        <div id="item-3">
+          <app-current-balance></app-current-balance>
+        </div>
+        <div id="item-4">&nbsp;</div>
       </div>

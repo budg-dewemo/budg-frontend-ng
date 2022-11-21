@@ -5,8 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
 
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -56,8 +54,7 @@ import { SetBudgetFormComponent } from './components/settings/set-budget/set-bud
 import { SetBudgetButtonComponent } from './components/settings/set-budget/set-budget-button/set-budget-button.component';
 //import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 
-
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -113,6 +110,7 @@ import { SetBudgetButtonComponent } from './components/settings/set-budget/set-b
     MatSidenavModule,
     MatDividerModule,
     MatProgressSpinnerModule,
+    InfiniteScrollModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

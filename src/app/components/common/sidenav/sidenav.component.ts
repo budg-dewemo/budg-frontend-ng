@@ -1,4 +1,4 @@
-import { LoginService } from 'src/app/services/login.service';
+import { AuthService } from './../../../services/auth.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -25,7 +25,7 @@ export class SidenavComponent implements OnInit {
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, public router: Router, private loginService: LoginService, private userService: UserService) {}
+  constructor(private observer: BreakpointObserver, public router: Router, private authService: AuthService, private userService: UserService) {}
 
   ngAfterViewInit(): void {
     this.observer.observe(['(max-width: 1170px)']).subscribe((result) => {
@@ -45,7 +45,7 @@ export class SidenavComponent implements OnInit {
   }
 
   logout() {
-    this.loginService.logout();
+    this.authService.logout();
     this.router.navigate(['/']);
   }
 

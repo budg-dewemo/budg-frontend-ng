@@ -17,41 +17,64 @@
     align-self: flex-start;
     padding-left: 20px;
     z-index: 2000;
-    color: "#2D2A3E";
+    color: #2D2A3E;
     font-family: "Karla";
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    line-height: 21px;
+    margin-top: 10px;
   }
 
   @media (max-width: 1068px) {
     .report {
-      width: 450px;
+      width: 500px;
       height: auto;
     }
   }
+
+  @media (max-width: 1067px) {
+    .report {
+      width: 450px;
+      height: auto;
+    }
+    .title {
+      font-size: 15px;
+    }
+  }
+  
   
   @media (max-width: 768px) {
     .report {
-      width: 450px;
+      width: 400px;
       height: auto;
     }
-
     .title {
-        font-size: 15px;
+      font-size: 15px;
     }
-
   }
   
-  @media (max-width: 400px) {
+  @media (max-width: 490px) {
     .report {
-      width: 344px;
-      height: 280px;
+      width: 350px;
+      height: auto;
     }
+  }
   
-    /* .weekly-spendings {
-          width: 300px;
-      } */
+  @media screen and (max-width: 380px) {
+  
+    .report {
+      width: 300px;
+      height: auto;
+    }
+    
+  }
+  
+  @media screen and (max-width: 320px) {
+  
+    .report {
+      width: 250px;
+      height: auto;
+    }
+    
   }
   

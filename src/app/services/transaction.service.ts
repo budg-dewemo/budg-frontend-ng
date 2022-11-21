@@ -18,11 +18,11 @@ export class TransactionService {
 
 
   getTransactions(): Observable<any> {
-    return this.http.get<any>(this.url+'expenses');
+    return this.http.get<any>(this.url+'transactions');
   }
 
-  addTransaction(transaction: any): Observable<Transaction> {
-    return this.http.post<Transaction>(this.url, transaction);
+  addTransaction(transaction: Transaction) {
+    return this.http.post<Transaction>(this.url+'transactions', transaction);
   }
 
 

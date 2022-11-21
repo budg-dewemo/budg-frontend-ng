@@ -6,7 +6,7 @@ import * as moment from 'moment';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class AuthService {
   constructor(private http: HttpClient) {}
 
   private url = 'https://budg-api.nicocartalla.com/api/v1/authenticate';
@@ -19,25 +19,24 @@ export class LoginService {
 
   login(username: string, password: string) {
     return this.http.post<any>(this.url, { username, password }).pipe(
-      tap((res) => this.setSession(res)),
+      tap((res) => this.setSession(res)),  
       shareReplay()
-    );
+    );    
   }
 
-  private setSession(authResult: any) {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
-
+  private setSession(authResult: any) {  
+    const expiresAt = new Date(authResult.expiration * 1000);
+    
     localStorage.setItem('token', authResult.token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('expiration', JSON.stringify(expiresAt.valueOf()));
   }
 
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('expires_at');
+    localStorage.removeItem('expiration');
   }
 
   public isLoggedIn() {
-    console.log(this.getExpiration().toDate());
     return moment().isBefore(this.getExpiration());
   }
 
@@ -46,8 +45,9 @@ export class LoginService {
   }
 
   getExpiration() {
-    const expiration = localStorage.getItem('expires_at') as string;
+    const expiration = localStorage.getItem('expiration') as string;
     const expiresAt = JSON.parse(expiration);
+
     return moment(expiresAt);
   }
 }
