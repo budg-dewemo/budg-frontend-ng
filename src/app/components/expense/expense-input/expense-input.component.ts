@@ -5,7 +5,6 @@ import { TransactionService } from 'src/app/services/transaction.service';
 import { Category } from 'src/app/models/category.model';
 import { ObservableLike } from 'rxjs';
 import { Transaction } from 'src/app/models/transaction.model';
-import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -71,6 +70,6 @@ getCategories() {
       this.categories.push({ id: res[i].id, label: res[i].name });
     }
   });
-}
+}}
 
 
