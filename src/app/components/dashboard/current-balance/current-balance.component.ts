@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentBalanceComponent implements OnInit {
 
+  currentBalanceData = {
+    currentBalance: 16435.3,
+    income: 5700,
+    expenses: 2345,
+  }
+
   constructor() { }
 
   ngOnInit(): void {

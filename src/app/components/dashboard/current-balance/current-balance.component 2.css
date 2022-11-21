@@ -75,6 +75,7 @@
 .expenses,
 .income {
   display: flex;
+  align-items: center;
 }
 
 .icon-circle {
@@ -158,10 +159,13 @@ mat-icon {
   .icon-circle {
     width: 39px;
     height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .mat-icon {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .text {
@@ -215,10 +219,13 @@ mat-icon {
   .icon-circle {
     width: 39px;
     height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .mat-icon {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .text {
