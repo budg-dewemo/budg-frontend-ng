@@ -25,22 +25,16 @@ jobs:
       - name: image env in lower case
         run: |
           echo "IMAGE_NAME=$(echo $REGISTRY/$REPO | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-      - name: Build the amd64 image
-        run: docker build --build-arg opts="CGO_ENABLED=0 GOARCH=amd64" -t ${{ env.IMAGE_NAME }}:latest-amd64 .
-      - name: Build the arm64 image
-        run: docker build --build-arg opts="GOARCH=arm64 GOARM=7" -t ${{ env.IMAGE_NAME }}:latest-arm64v7 .
+      - name: Build image
+        run: docker build -t ${{ env.IMAGE_NAME }}:latest .
       - name: Tag with short SHA
         run: |
-          docker tag ${{ env.IMAGE_NAME }}:latest-amd64 ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          docker tag ${{ env.IMAGE_NAME }}:latest-arm64v7 ${{ env.IMAGE_NAME }}:${{ github.sha }}-arm64v7
-      - name: Docker Push amd64
-        run: docker push ${{ env.IMAGE_NAME }}:latest-amd64
-      - name: Docker Push arm64v7
-        run: docker push ${{ env.IMAGE_NAME }}:latest-arm64v7
+          docker tag ${{ env.IMAGE_NAME }}:latest ${{ env.IMAGE_NAME }}:${{ github.sha }}
+      - name: Docker Push
+        run: docker push ${{ env.IMAGE_NAME }}:latest
       - name: Docker Push short SHA
         run: |
           docker push ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          docker push ${{ env.IMAGE_NAME }}:${{ github.sha }}-arm64v7
       # - name: Deploy to Kubernetes cluster
       #   uses: kodermax/kubectl-aws-eks@master
       #   env:
