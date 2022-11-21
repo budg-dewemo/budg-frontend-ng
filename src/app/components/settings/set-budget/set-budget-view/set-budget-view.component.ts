@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-set-budget-view',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./set-budget-view.component.css']
 })
 export class SetBudgetViewComponent implements OnInit {
+
+  @ViewChild('setBudgetForm') setBudgetForm: any;
 
   constructor() { }
 

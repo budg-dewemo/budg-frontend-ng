@@ -1,16 +1,10 @@
 .sign-in-button {
     width: 328px;
     height: 59px;
-    left: 31px;
-    margin-left: 26pt;
-    margin-top: 68pt;
 }
 
 .login-box {
     display: flex;
-    /* margin-top: 282pt;
-    margin-right: 26pt;
-    align-items: center; */
     justify-content: center;
     flex-direction: column;
 }

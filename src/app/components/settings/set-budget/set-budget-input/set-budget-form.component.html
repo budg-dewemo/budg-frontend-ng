@@ -1,19 +1,20 @@
 <form class="container" [formGroup]="budgetForm">
   <div class="form">
-    <label for="budget">Current budget:</label>
+    <label for="amount">Current budget:</label>
     <div class="input">
       <span>$</span>
       <input
         type="number"
-        name="budget"
-        placeholder="{{ this.currentBudget }}"
-        formControlName="budget"
+        name="amount"
+        placeholder="{{ this.currentBudget.amount }}"
+        formControlName="amount"
         min="1"
         max="999999"
         maxlength="6"
       />
     </div>
   </div>
+  <app-set-budget-button (click)="setBudget()"></app-set-budget-button>
 </form>
 
 <!-- [disabled]="isLoading" (click)="signIn()" -->

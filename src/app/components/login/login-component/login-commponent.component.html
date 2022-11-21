@@ -1,6 +1,4 @@
 <div class="login-box">
     <app-input-login class="sign-in-input" (onUsernameInput)=onUsernameInput($event) (onPasswordInput)="onPasswordInput($event)"></app-input-login>
-    <div class="sign-in-button">
-        <app-sign-in-button [username]="username" [password]="password"></app-sign-in-button>
-    </div>
+   <app-sign-in-button [username]="username" [password]="password"></app-sign-in-button>
 </div>
