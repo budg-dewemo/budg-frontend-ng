@@ -1,5 +1,5 @@
 import { TransactionService } from 'src/app/services/transaction.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Transaction } from '../../../models/transaction.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { Transaction } from '../../../models/transaction.model';
   styleUrls: ['./transaction-list.component.css']
 })
 export class TransactionListComponent implements OnInit {
+
+ @Input() totalTransactionsToDisplay: number = 10; 
 
   transactions: Transaction[] | undefined = [];
 

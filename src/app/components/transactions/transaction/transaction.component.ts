@@ -16,8 +16,8 @@ export class TransactionComponent implements OnInit {
     date: new Date(),
     description: 'Pizza with friends',
     budgetId: 1,
-    userId: 1,
-    file: ''
+    type: 'expense',
+    filePath: ''
   };
   
   

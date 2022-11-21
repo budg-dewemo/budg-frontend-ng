@@ -26,7 +26,7 @@ export class AuthService {
 
   private setSession(authResult: any) {  
     const expiresAt = new Date(authResult.expiration * 1000);
-
+    
     localStorage.setItem('token', authResult.token);
     localStorage.setItem('expiration', JSON.stringify(expiresAt.valueOf()));
   }

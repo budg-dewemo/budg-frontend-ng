@@ -19,6 +19,7 @@ mat-sidenav {
 
 .content {
   height: 95%;
+  max-height: 800px;
   width: 95%;
   margin-left: 32px; 
   font-size: 2rem;

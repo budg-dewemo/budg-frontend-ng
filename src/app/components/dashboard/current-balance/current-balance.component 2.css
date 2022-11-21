@@ -1,5 +1,5 @@
 .component {
-  max-height: 300px;
+  max-height: 220px;
 }
 .bkg-card {
   width: 342px;
@@ -120,9 +120,66 @@ mat-icon {
     
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (max-width: 3000px) and (min-width: 1470px){
   .component {
     min-height: 200px;
+  }
+  .bkg-card {
+    width: 678px;
+    height: 364px;
+  }
+
+  .balance-card {
+    width: 678px;
+    height: 364px;
+    left: 25px;
+    top: -327px;
+  }
+
+  .current-balance{
+    padding-bottom: 30px;
+  }
+
+  .current-balance-text {
+    font-size: 30px;
+    line-height: 23px;
+  }
+
+  .current-balance-value {
+    font-size: 90px;
+    line-height: 69px;
+  }
+
+  .income-expenses {   
+    width: 506px;
+    height: 49px;
+  }
+
+  .icon-circle {
+    width: 39px;
+    height: 39px;
+  }
+
+  .mat-icon {
+    font-size: 30px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
+
+  .text-group {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1470px) and (min-width: 900px){
+  .component {
+    min-height: 300px;
   }
   .bkg-card {
     width: 478px;
@@ -130,10 +187,14 @@ mat-icon {
   }
 
   .balance-card {
-    width: 468px;
+    width: 478px;
     height: 257px;
     left: 25px;
     top: -227px;
+  }
+
+  .current-balance{
+    padding-bottom: 30px;
   }
 
   .current-balance-text {
@@ -142,7 +203,7 @@ mat-icon {
   }
 
   .current-balance-value {
-    font-size: 60px;
+    font-size: 70px;
     line-height: 69px;
   }
 
@@ -171,4 +232,8 @@ mat-icon {
   .text-group {
     padding-left: 10px;
   }
+}
+
+@media screen and (max-width: 350px){
+  
 }

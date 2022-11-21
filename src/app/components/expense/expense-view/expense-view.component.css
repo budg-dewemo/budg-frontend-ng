@@ -19,3 +19,23 @@
 
   
 }
+
+@media (max-width: 370px) {
+  .title {
+    width: 200px;
+    height: 35px;
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+}
+
+@media screen and (max-height: 700px) {
+  .title {
+    width: 200px;
+    height: 35px;
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 5px;
+  }
+}
