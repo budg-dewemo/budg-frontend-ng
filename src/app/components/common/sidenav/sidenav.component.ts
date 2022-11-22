@@ -60,13 +60,6 @@ export class SidenavComponent implements OnInit {
       this.user.avatar = data.user.avatar;
       this.user.id = data.user.id;
     });
-
-    const name = localStorage.setItem('name', this.user.name);
-    const lastName = localStorage.setItem('lastName', this.user.lastName);
-    const username = localStorage.setItem('username', this.user.username);
-    const email = localStorage.setItem('email', this.user.email);
-    const avatar = localStorage.setItem('avatar', this.user.avatar);
-    const id = localStorage.setItem('id', this.user.id.toString());
   }
 
   onOutletLoaded(component: any) {
