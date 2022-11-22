@@ -17,8 +17,8 @@ export class SetBudgetFormComponent implements OnInit {
 
   currentBudget : Budget = {
     amount: 0,
-    startDate: new Date(),
-    endDate: new Date(),
+    startDate: '',
+    endDate:  '',
     name: '',
   };
 
@@ -45,12 +45,12 @@ export class SetBudgetFormComponent implements OnInit {
     const budget: Budget = {
       name: 'Current budget',
       amount: this.budgetForm.value.amount,
-      startDate: new Date(),
-      endDate: moment().add(1, 'month').toDate(),
+      startDate: moment().format('YYYY-MM-DD'),
+      endDate: moment().add(1, 'month').format('YYYY-MM-DD'),
     };
     
     console.log('budget', budget);
-    
+
 
     this.budgetService.setBudget(budget).subscribe((res) => {
       console.log('response', res);

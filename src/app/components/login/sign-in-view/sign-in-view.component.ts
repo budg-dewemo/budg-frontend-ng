@@ -1,3 +1,4 @@
+import { ToastNotifComponent } from './../../toast-notif/toast-notif.component';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,5 +17,7 @@ export class SignInViewComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     }
   }
+
+
 
 }

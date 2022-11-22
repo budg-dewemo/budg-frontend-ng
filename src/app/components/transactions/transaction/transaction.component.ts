@@ -37,18 +37,10 @@ export class TransactionComponent implements OnInit {
       case 4:
         return 'celebration';
       case 5:
-        return 'lightbulb';
-      case 6:
         return 'health_and_safety';
-      case 7:
-        return 'checkroom';
-      case 8:
-        return 'school';
-      case 9:
-        return 'savings';
-      case 10:
+      case 6:
         return 'shopping_bag';
-      case 11: 
+      case 7:
         return 'receipt_long';
       default:
         return 'question_mark';

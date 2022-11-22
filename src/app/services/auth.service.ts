@@ -20,8 +20,10 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http.post<any>(this.url, { username, password }).pipe(
       tap((res) => this.setSession(res)),  
-      shareReplay()
+      shareReplay(),
+      // catchError(this.handleError)
     );    
+    
   }
 
   private setSession(authResult: any) {  
@@ -50,4 +52,9 @@ export class AuthService {
 
     return moment(expiresAt);
   }
+
+  // private handleError(error: any) {
+  //   console.error('An error occurred', error);
+    
+  // }
 }

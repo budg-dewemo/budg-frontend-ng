@@ -1,6 +1,11 @@
 mat-toolbar {
   background: #fafafa;
   color: #2d2a3e;
+
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0; 
+  z-index: 1000; 
 }
 
 mat-sidenav {
@@ -12,16 +17,13 @@ mat-sidenav {
   border-radius: 10px;
   padding: 16px;
   text-align: center;
-
-  
-
 }
 
 .content {
   height: 95%;
   max-height: 800px;
   width: 95%;
-  margin-left: 32px; 
+  margin-left: 32px;
   font-size: 2rem;
   color: #fafafa;
   display: flex;
@@ -39,7 +41,7 @@ mat-sidenav-container {
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .menu-button:hover {
@@ -71,18 +73,18 @@ mat-divider {
   letter-spacing: -0.15em;
 }
 
-.avatar img{
-    margin-top: 16px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+.avatar img {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .name {
-    font-family: 'Karla', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 20px;
+  font-family: "Karla", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 1280) {
@@ -92,7 +94,6 @@ mat-divider {
     justify-content: center;
   }
 }
-  
 
 @media screen and (max-width: 768px) {
   .content {
@@ -100,4 +101,3 @@ mat-divider {
     justify-content: center;
   }
 }
-    

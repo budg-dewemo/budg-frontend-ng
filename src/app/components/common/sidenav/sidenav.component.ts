@@ -43,10 +43,6 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // if (localStorage.getItem('name') == undefined) {
-    //   this.getUserPreferences();
-    // }
-
     this.getUserPreferences();
   }
 
