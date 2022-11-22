@@ -4,6 +4,8 @@
     font-family: Karla, sans-serif;
     color: white;
     border-radius: 10pt;
+
+    font-family: 'Karl', 'sans-serif';
 }
 
 ::ng-deep snack-bar-container.red-snackbar {

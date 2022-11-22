@@ -1,4 +1,4 @@
-import { AuthService } from './../../../services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit, Input, ViewChild, Directive } from '@angular/core';
 import { ToastNotifComponent } from '../../toast-notif/toast-notif.component';
 import {
@@ -31,9 +31,15 @@ export class SignInButtonComponent implements OnInit {
     this.isLoading = true;
     this.authService
       .login(this.username, this.password)
-      .subscribe((data) => {
-        this.isLoading = false;
-        this.router.navigate(['/dashboard']);
+      .subscribe((res) => {        
+        if (this.authService.isLoggedIn()) {        
+          this.isLoading = false;
+          this.notif.openSuccessSnackBar('Logged in successfully');
+          this.router.navigate(['/dashboard']);
+        } else if (res ) {         
+          this.isLoading = false;
+          this.notif.openFailureSnackBar('Invalid credentials');
+        }
       });
   }
 }

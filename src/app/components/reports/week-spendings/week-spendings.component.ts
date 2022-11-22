@@ -15,10 +15,13 @@ export class WeekSpendingsComponent implements OnInit {
   }
 
   colors : string[] = ['#3ACE64', '#7D89F0', '#E9918C', '#FFD172', '#E88740', '#DF51C0', '#40A5E8',  '#51DFC6'];
+  
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(window.innerWidth > 600 ? 'right' : 'bottom');
+    
   }
 
   public pieChartOptions: ChartOptions<'pie'> = {
@@ -34,7 +37,7 @@ export class WeekSpendingsComponent implements OnInit {
     
     plugins: {
       legend: {
-        position: 'left',
+        position: window.innerWidth > 600 ? 'right' : 'bottom',
         labels: {
           usePointStyle: true,
           color: '#615E74',

@@ -1,9 +1,33 @@
-<div>
-    <input class="input-login" placeholder="E-mail or username" type="text" id="username" name="username" (focusout)="inputUsername(inputUsr.value)" #inputUsr [(ngModel)]="username">
+<div class="container">
+  <div>
+    <input
+      class="input-login"
+      placeholder="E-mail or username"
+      type="text"
+      id="username"
+      name="username"
+      (focusout)="inputUsername(inputUsr.value)"
+      #inputUsr
+      [(ngModel)]="username"
+    />
+  </div>
+  <div class="password">      
+        <input
+          class="input-login custom-password"
+          placeholder="Password"
+          matInput
+          [type]="showPassword ? 'text' : 'password'"
+          name="password"
+          (focusout)="inputPassword(inputPwd.value)"
+          #inputPwd
+          [(ngModel)]="password"
+        />
+        <mat-icon
+          class="pass-visibility"
+          matSuffix
+          (click)="togglePasswordVisibility()"
+        >
+          {{ showPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
+  </div>
 </div>
-<div class="password">
-    <input class="input-login custom-password"  placeholder="Password" matInput [type]="showPassword ? 'text' : 'password'" name="password" (focusout)="inputPassword(inputPwd.value)" #inputPwd [(ngModel)]="password" >
-    <mat-icon class="pass-visibility" matSuffix (click)="togglePasswordVisibility()">
-        {{showPassword?'visibility_off':'visibility'}}
-      </mat-icon>
-</div>  

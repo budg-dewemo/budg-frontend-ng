@@ -1,15 +1,19 @@
-      <div class="angry-grid">
-        <div id="item-0">
-          <h2 class="welcome">Hello, {{user.name}}!</h2>
-        </div>
-        <div id="item-1">
-          <h5 class="latest">Latest transactions</h5>
-        </div>
-        <div id="item-2">
-          <app-transaction-list></app-transaction-list>
-        </div>
-        <div id="item-3">
-          <app-current-balance></app-current-balance>
-        </div>
-        <div id="item-4">&nbsp;</div>
-      </div>
+<div class="container">
+  <div class="grid">
+    <div id="item-0">
+      <h2 class="welcome">Hello, {{ user.name }}!</h2>
+    </div>
+    <div id="item-1">
+      <h5 class="latest">Latest transactions</h5>
+    </div>
+    <div id="item-2">
+      <app-transaction-list></app-transaction-list>
+    </div>
+    <div id="item-3">
+      <app-current-balance></app-current-balance>
+    </div>
+    <div id="item-4">
+      <!-- <app-monthly-spendings class="report"></app-monthly-spendings> -->
+    </div>
+  </div>
+</div>

@@ -8,8 +8,14 @@
   color: #2d2a3e;
 }
 
+.container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
 
-.angry-grid {
+.grid {
   display: grid; 
 
   grid-template-rows: 0.1fr 1fr 1fr 1fr;
@@ -75,6 +81,8 @@
 
   grid-row-end: 4;
   grid-column-end: 4;
+
+  margin-right: 40px;
   
 }
 #item-4 {
@@ -88,8 +96,13 @@
   
 }
 
+.report {
+  max-width: 300px;
+  max-height: 200px;
+}
+
 @media screen and (max-width: 920px) {
-  .angry-grid {
+  .grid {
     gap: 5px;
   }
   #item-0 {

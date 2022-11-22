@@ -14,6 +14,8 @@ import { Transaction } from 'src/app/models/transaction.model';
 })
 
 export class ExpenseInputComponent implements OnInit { 
+
+  isLoading: boolean = false;
   
   expenseForm: FormGroup = new FormGroup({});
   
@@ -45,7 +47,12 @@ ngOnInit(): void {
 
 
 
+
+
 addTransaction() {
+  this.isLoading = true;
+
+  
   const transaction: Transaction = {
     budgetId: this.expenseForm.value.budgetId,
     amount: this.expenseForm.value.amount,
@@ -56,10 +63,14 @@ addTransaction() {
     filePath: this.expenseForm.value.filePath,
   };
 
+  console.log('transaction', transaction);
+
+  
   this.transactionService.addTransaction(transaction).subscribe((res) => {
     console.log(res);
   });
 
+  this.isLoading = false;
   this.expenseForm.reset();
   
 }
