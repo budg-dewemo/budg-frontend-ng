@@ -12,3 +12,16 @@ button {
 button mat-icon {
   color: #ffffff;
 }
+
+@media screen and (max-width: 360px) {
+  button {
+    width: 34px;
+    height: 34px;
+  }
+
+  mat-icon {
+    font-size: 16px;
+    padding-top: 7çpx;
+  }
+}
+  

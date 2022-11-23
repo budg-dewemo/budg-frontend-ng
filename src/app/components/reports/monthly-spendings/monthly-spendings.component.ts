@@ -1,5 +1,7 @@
+import { ReportService } from './../../../services/report.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
+import { Report } from 'src/app/models/report.model';
 
 @Component({
   selector: 'app-monthly-spendings',
@@ -8,22 +10,10 @@ import { ChartConfiguration } from 'chart.js';
 })
 export class MonthlySpendingsComponent implements OnInit {
 
-  @Input() chartData = {
-    labels: [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'June',
-    'July',
-    'Aug',
-    'Sept',
-    'Oct',
-    'Nov',
-    'Dec',], 
-    data: [6500, 5998, 8034, 8123, 5605, 5500, 4045, 5689, 4511, 3350, 9002,10200]
-  }
+  constructor(private reportService: ReportService) {}
+
+
+  isDataLoaded: boolean = false;
 
   colors : string[] = [
     '#3ACE64',
@@ -41,10 +31,10 @@ export class MonthlySpendingsComponent implements OnInit {
   public barChartPlugins = [];
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {
-    labels: this.chartData.labels,
+    labels: [],
     datasets: [
       {
-        data: this.chartData.data,
+        data: [],
 
         backgroundColor: this.colors,
         borderRadius: 10,
@@ -119,12 +109,17 @@ export class MonthlySpendingsComponent implements OnInit {
     },
   };
 
-  constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getChartData();  
+  }
 
-  //TO-DO: GET data from API
-  // getChartOptions() {
+  getChartData() {
+    this.reportService.getMonthlyReport().subscribe((data: any) => {
+      this.barChartData.labels = data.chartData.labels;
+      this.barChartData.datasets[0].data = data.chartData.data;
 
-  // }
+      this.isDataLoaded = true;
+    });
+  }
 }

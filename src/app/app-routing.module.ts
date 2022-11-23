@@ -1,3 +1,4 @@
+import { IndividualTransactionViewComponent } from './components/transactions/individual-transaction/individual-transaction-view/individual-transaction-view.component';
 import { ReportsViewComponent } from './components/reports/reports-view/reports-view.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -19,7 +20,16 @@ const routes: Routes = [
   {
     path: 'transactions',
     canActivate: [AuthGuard],
-    component: TransactionListComponent
+    children: [
+      {
+        path: '',
+        component: TransactionListComponent
+      },
+      {
+        path: ':id',
+        component: IndividualTransactionViewComponent
+      }
+    ]
   },
   {
     path: 'reports',

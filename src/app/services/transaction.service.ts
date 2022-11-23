@@ -21,9 +21,18 @@ export class TransactionService {
     return this.http.get<any>(this.url+'transactions');
   }
 
+  getPaginatedTransactions(quantity: number): Observable<any> {
+    return this.http.get<any>(this.url+'transactions?quantity='+ quantity);
+  }
+
   addTransaction(transaction: Transaction) {
     return this.http.post<Transaction>(this.url+'transactions', transaction);
   }
+
+  getTransactionById(id: number): Observable<Transaction> {
+    return this.http.get<Transaction>(this.url+'transactions/'+id);
+  }
+
 
 
 }

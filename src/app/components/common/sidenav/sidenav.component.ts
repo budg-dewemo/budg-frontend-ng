@@ -21,6 +21,8 @@ export class SidenavComponent implements OnInit {
     avatar: '',
   };
 
+  currentBudgetId: number = 0;
+
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
   constructor(
@@ -52,7 +54,9 @@ export class SidenavComponent implements OnInit {
   }
 
   getUserPreferences() {
-    this.userService.getUserPreferences().subscribe((data) => {
+    this.userService.getUserPreferences().subscribe((data : any) => {
+      this.currentBudgetId = data.budgetId;
+      
       this.user.name = data.user.name;
       this.user.lastName = data.user.lastName;
       this.user.username = data.user.username;
@@ -60,13 +64,6 @@ export class SidenavComponent implements OnInit {
       this.user.avatar = data.user.avatar;
       this.user.id = data.user.id;
     });
-
-    const name = localStorage.setItem('name', this.user.name);
-    const lastName = localStorage.setItem('lastName', this.user.lastName);
-    const username = localStorage.setItem('username', this.user.username);
-    const email = localStorage.setItem('email', this.user.email);
-    const avatar = localStorage.setItem('avatar', this.user.avatar);
-    const id = localStorage.setItem('id', this.user.id.toString());
   }
 
   onOutletLoaded(component: any) {

@@ -1,6 +1,6 @@
 <div class="report">
     <div class="title">This month's spendings</div>
-    <canvas baseChart class="monthly-spendings"
+    <canvas *ngIf="isDataLoaded" baseChart class="monthly-spendings"      
         [data]="barChartData"
         [options]="barChartOptions"
         [plugins]="barChartPlugins"

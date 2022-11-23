@@ -1,5 +1,6 @@
+import { ReportService } from './../../../services/report.service';
 import { waitForAsync } from '@angular/core/testing';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 
 @Component({
@@ -8,20 +9,16 @@ import { ChartOptions } from 'chart.js';
   styleUrls: ['./week-spendings.component.css']
 })
 export class WeekSpendingsComponent implements OnInit {
-  
-  @Input() chartData = {
-    labels: ['Food', 'Rent' , 'Entertainment', 'Holidays', 'Clothing', 'Bills', 'Miscellaneous', 'Custom expenses'],
-    data: [300, 500, 100, 400, 500, 600, 500, 700]
-  }
+
+  isDataLoaded: boolean = false;
 
   colors : string[] = ['#3ACE64', '#7D89F0', '#E9918C', '#FFD172', '#E88740', '#DF51C0', '#40A5E8',  '#51DFC6'];
   
 
-  constructor() { }
+  constructor(private reportService: ReportService) { }
 
   ngOnInit(): void {
-    console.log(window.innerWidth > 600 ? 'right' : 'bottom');
-    
+    this.getChartData();
   }
 
   public pieChartOptions: ChartOptions<'pie'> = {
@@ -67,9 +64,9 @@ export class WeekSpendingsComponent implements OnInit {
     }
   }
 }
-  public pieChartLabels = this.chartData.labels;
+  public pieChartLabels = [];
   public pieChartDatasets = [ {
-    data: this.chartData.data,
+    data: [],
     backgroundColor: this.colors,
     borderColor: this.colors,
   } ];
@@ -77,7 +74,18 @@ export class WeekSpendingsComponent implements OnInit {
   public pieChartPlugins = [];
  
 
-  getChartOptions() {
-    // this.pieChartDatasets.[0].data = this.chartOptions.datasets[0].data;
+  getChartData() {
+    this.reportService.getCategoryReport().subscribe((data: any) => {
+      console.log('data', data);    
+      this.pieChartLabels = data.chartData.labels;
+      this.pieChartDatasets[0].data = data.chartData.data;
+      this.isDataLoaded = true;
+    });
   }
+
+  @HostListener('window:resize', ['$event']) onResize(event: any) {
+    // Re-render the chart if the window size is smaller than 600px
+    if (event.target.innerWidth < 600) {
+    }
+ }
 }

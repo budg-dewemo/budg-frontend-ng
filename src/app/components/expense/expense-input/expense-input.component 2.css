@@ -257,10 +257,13 @@ mat-form-field .exp-input{
       font-size: 20px;
     }
 
-    mat-form-field mat-select {
-      height: 10px;
-    }
+    /* ASHUDAAAAAAA  */
 
-      
+    ::ng-deep .mat-form-field {
+      font-size: 12px; 
+  }
 
+  .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex .mat-form-field-infix {
+    padding: 0 0 0 0;
+  }
   }

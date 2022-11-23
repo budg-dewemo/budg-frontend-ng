@@ -27,7 +27,7 @@ export class SettingsViewComponent implements OnInit {
   }
 
   async getUser() {
-    this.userService.getUserPreferences().subscribe((data) => {
+    this.userService.getUserPreferences().subscribe((data : any) => {
       this.user.name = data.user.name;
       this.user.lastName = data.user.lastName;
       this.user.username = data.user.username;

@@ -1,18 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Report } from '../models/report.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportService {
 
-  private url = 'https://budg-api.nicocartalla.com/api/v1/reports';
+  private url = 'https://budg-api.nicocartalla.com/api/v1/report/';
 
   constructor(private http: HttpClient) {}
 
-  // getReports() {
-  //   return this.http.get(this.url);
-  // }
+  getMonthlyReport(): Observable<Report> {
+    return this.http.get<any>(this.url + 'monthly');
+  }
+
+  getCategoryReport(): Observable<Report> {
+    return this.http.get<any>(this.url + 'category');
+  }
 
 
 }
