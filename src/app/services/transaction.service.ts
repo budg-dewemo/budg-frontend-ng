@@ -29,5 +29,10 @@ export class TransactionService {
     return this.http.post<Transaction>(this.url+'transactions', transaction);
   }
 
+  getTransactionById(id: number): Observable<Transaction> {
+    return this.http.get<Transaction>(this.url+'transactions/'+id);
+  }
+
+
 
 }

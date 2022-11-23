@@ -55,6 +55,7 @@ import { SetBudgetButtonComponent } from './components/settings/set-budget/set-b
 //import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { IndividualTransactionViewComponent } from './components/transactions/individual-transaction/individual-transaction-view/individual-transaction-view.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     SetBudgetViewComponent,
     SetBudgetFormComponent,
     SetBudgetButtonComponent,
+    IndividualTransactionViewComponent,
   ],
   imports: [
     BrowserModule,
