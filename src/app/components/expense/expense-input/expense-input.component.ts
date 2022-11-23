@@ -7,12 +7,16 @@ import { ObservableLike } from 'rxjs';
 import { Transaction } from 'src/app/models/transaction.model';
 import { UserService } from 'src/app/services/user.service';
 
+
 @Component({
   selector: 'app-expense-input',
   templateUrl: './expense-input.component 2.html',
   styleUrls: ['./expense-input.component 2.css'],
 })
-export class ExpenseInputComponent implements OnInit {
+
+
+export class ExpenseInputComponent implements OnInit { 
+
   isLoading: boolean = false;
 
   currentBudgetId: number = 0;
@@ -36,6 +40,7 @@ export class ExpenseInputComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
     this.getCurrentBudgetId();
+
 
     console.log('current budget id', this.currentBudgetId);
 
@@ -90,3 +95,40 @@ export class ExpenseInputComponent implements OnInit {
     });
   }
 }
+
+addTransaction() {
+  this.isLoading = true;
+
+  
+  const transaction: Transaction = {
+    budgetId: this.expenseForm.value.budgetId,
+    amount: this.expenseForm.value.amount,
+    type: this.expenseForm.value.type,
+    description: this.expenseForm.value.description,
+    categoryId: this.expenseForm.value.categoryId,
+    date: this.expenseForm.value.date,
+    filePath: this.expenseForm.value.filePath,
+  };
+
+  console.log('transaction', transaction);
+
+  
+  this.transactionService.addTransaction(transaction).subscribe((res) => {
+    console.log(res);
+  });
+
+  this.isLoading = false;
+  this.expenseForm.reset();
+  
+}
+
+getCategories() {
+  this.transactionService.getCategories().subscribe((res) => {
+    for (let i = 0; i < res.length; i++) {
+      this.categories.push({ id: res[i].id, label: res[i].name });
+    }
+  });
+}}
+
+
+
