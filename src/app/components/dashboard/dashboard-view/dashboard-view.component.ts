@@ -29,13 +29,15 @@ export class DashboardViewComponent implements OnInit {
   }
 
   getTransactions() {
-    this.transactionService.getTransactions().subscribe((data) => {
+   if(window.innerWidth > 1170) {
+    this.transactionService.getTransactions().subscribe((data : any) => {
       console.log(data);
     });
+   }
   }
 
   getUserPreferences() {
-    this.userService.getUserPreferences().subscribe((data) => {
+    this.userService.getUserPreferences().subscribe((data : any) => {
       this.user.name = data.user.name;
       this.user.username = data.user.username;
       this.user.email = data.user.email;

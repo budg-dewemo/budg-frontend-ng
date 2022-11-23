@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Balance } from 'src/app/models/balance.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-current-balance',
@@ -7,15 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentBalanceComponent implements OnInit {
 
-  currentBalanceData = {
-    currentBalance: 16435.3,
-    income: 5700,
-    expenses: 2345,
+  currentBalanceData: Balance = {
+    currentBalance: 0,
+    totalIncome: 0,
+    totalExpenses: 0,
+    totalBudget: 0,
   }
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getCurrentBalance();
+  }
+
+  getCurrentBalance() {
+    this.userService.getBalance().subscribe((data: Balance) => {
+      this.currentBalanceData = data;
+    });
   }
 
 }
