@@ -94,41 +94,13 @@ export class ExpenseInputComponent implements OnInit {
       console.log('res from get current budget id', res.budgetId);
     });
   }
+
+
 }
 
-addTransaction() {
-  this.isLoading = true;
 
-  
-  const transaction: Transaction = {
-    budgetId: this.expenseForm.value.budgetId,
-    amount: this.expenseForm.value.amount,
-    type: this.expenseForm.value.type,
-    description: this.expenseForm.value.description,
-    categoryId: this.expenseForm.value.categoryId,
-    date: this.expenseForm.value.date,
-    filePath: this.expenseForm.value.filePath,
-  };
 
-  console.log('transaction', transaction);
 
-  
-  this.transactionService.addTransaction(transaction).subscribe((res) => {
-    console.log(res);
-  });
-
-  this.isLoading = false;
-  this.expenseForm.reset();
-  
-}
-
-getCategories() {
-  this.transactionService.getCategories().subscribe((res) => {
-    for (let i = 0; i < res.length; i++) {
-      this.categories.push({ id: res[i].id, label: res[i].name });
-    }
-  });
-}}
 
 
 
