@@ -20,8 +20,6 @@ export class TransactionComponent implements OnInit {
     filePath: ''
   };
   
-  
-
   constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {}

@@ -21,20 +21,24 @@ export class UserService {
   //     return this.userData;
   //   } else {
   //     this.http.get<any>(this.url + 'userPreferences').subscribe(data => {
+  //       console.log('data', data);     
   //       this.userData = data;
   //     });
   //     }
   //     console.log(this.userData);      
   //     return this.userData;
   //   } 
-  // }
 
-  getUserPreferences(): Observable<any> {
-    return this.http.get<any>(this.url + 'userPreferences');
+    getBalance(): Observable<Balance> {
+      return this.http.get<any>(this.url + 'balance');
+    }
+
+    getUserPreferences(): Observable<any> {
+      return this.http.get<any>(this.url + 'userPreferences');
+    }
+
   }
 
-  getBalance(): Observable<Balance> {
-    return this.http.get<any>(this.url + 'balance');
-  }
-}
+
+
 

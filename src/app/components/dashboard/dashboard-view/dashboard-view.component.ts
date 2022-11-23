@@ -30,33 +30,46 @@ export class DashboardViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log('window.innerWidth', window.innerWidth);
     this.getUserPreferences();
     this.getTransactions();
     this.isDataFetched = true;
     // Porque no se actualiza este array DIOS MIO?
-    console.log(this.transactions);
+    console.log('transactions on init',this.transactions);
   }
 
   getTransactions() {
     if (window.innerWidth >= 1920 && window.innerHeight >= 1080) {
       this.transactionService.getPaginatedTransactions(5).subscribe((data) => {
+        console.log('data', data);      
+        this.transactions = data;
+        console.log('transactions', this.transactions);
         return data;
       });
     } else if (window.innerWidth >= 1366 && window.innerHeight >= 768) {
       this.transactionService.getPaginatedTransactions(4).subscribe((data) => {
-        
+        console.log('data', data);      
+        this.transactions = data;
+        console.log('transactions', this.transactions);
         return data;
       });
     } else if (window.innerWidth >= 390 && window.innerHeight >= 844) {
       this.transactionService.getPaginatedTransactions(3).subscribe((data) => {
-        
+        console.log('data', data);      
+        this.transactions = data;
+        console.log('transactions', this.transactions);
         return data;
       });
     } else if (window.innerWidth >= 375 && window.innerHeight >= 667) {
       this.transactionService.getPaginatedTransactions(2).subscribe((data) => {
-      
+        console.log('data', data);      
+        this.transactions = data;
+        console.log('transactions', this.transactions);
         return data;
       });
+    } else if (window.innerWidth >= 1536 && window.innerHeight >= 864) {
+      console.log('hola');
+      
     }
   }
 

@@ -31,7 +31,7 @@ export class ExpenseInputComponent implements OnInit {
     private router: Router,
     private transactionService: TransactionService,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -40,7 +40,7 @@ export class ExpenseInputComponent implements OnInit {
     console.log('current budget id', this.currentBudgetId);
 
     this.expenseForm = this.formBuilder.group({
-      budgetId: [1],
+      budgetId: [this.currentBudgetId, Validators.required],
       amount: ['', Validators.required],
       type: ['', Validators.required],
       description: ['', Validators.required],
@@ -54,12 +54,12 @@ export class ExpenseInputComponent implements OnInit {
     this.isLoading = true;
 
     const transaction: Transaction = {
-      budgetId: this.expenseForm.value.budgetId,
+      budgetId: this.currentBudgetId,
       amount: this.expenseForm.value.amount,
       type: this.expenseForm.value.type,
       description: this.expenseForm.value.description,
       categoryId: this.expenseForm.value.categoryId,
-      date: this.expenseForm.value.date,
+      date: this.expenseForm.value.date.toISOString().split('T')[0],
       filePath: this.expenseForm.value.filePath,
     };
 
@@ -82,9 +82,11 @@ export class ExpenseInputComponent implements OnInit {
   }
 
   getCurrentBudgetId() {
-    this.userService.getUserPreferences().subscribe((res) => {
-      console.log('res from get current budget id', res.budgetId);
+    this.userService.getUserPreferences().subscribe((res: any) => {
+      console.log(res);
+      
       this.currentBudgetId = res.budgetId;
+      console.log('res from get current budget id', res.budgetId);
     });
   }
 }

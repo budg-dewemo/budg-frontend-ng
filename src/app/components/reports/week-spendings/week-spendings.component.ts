@@ -1,6 +1,6 @@
 import { ReportService } from './../../../services/report.service';
 import { waitForAsync } from '@angular/core/testing';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
 
 @Component({
@@ -18,9 +18,7 @@ export class WeekSpendingsComponent implements OnInit {
   constructor(private reportService: ReportService) { }
 
   ngOnInit(): void {
-    // console.log(window.innerWidth > 600 ? 'right' : 'bottom');
     this.getChartData();
-    
   }
 
   public pieChartOptions: ChartOptions<'pie'> = {
@@ -36,7 +34,7 @@ export class WeekSpendingsComponent implements OnInit {
     
     plugins: {
       legend: {
-        position: 'right',
+        position: window.innerWidth > 600 ? 'right' : 'bottom',
         labels: {
           usePointStyle: true,
           color: '#615E74',
@@ -84,4 +82,10 @@ export class WeekSpendingsComponent implements OnInit {
       this.isDataLoaded = true;
     });
   }
+
+  @HostListener('window:resize', ['$event']) onResize(event: any) {
+    // Re-render the chart if the window size is smaller than 600px
+    if (event.target.innerWidth < 600) {
+    }
+ }
 }
