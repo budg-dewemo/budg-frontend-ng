@@ -7,7 +7,7 @@
       <h5 class="latest">Latest transactions</h5>
     </div>
     <div id="item-2">
-      <app-transaction-list></app-transaction-list>
+      <app-transaction-list *ngIf="isDataFetched" [transactions]="transactions"></app-transaction-list>
     </div>
     <div id="item-3">
       <app-current-balance></app-current-balance>

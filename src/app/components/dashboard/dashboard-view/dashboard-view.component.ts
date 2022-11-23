@@ -2,15 +2,16 @@ import { UserService } from 'src/app/services/user.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { User } from 'src/app/models/user.model';
+import { Transaction } from 'src/app/models/transaction.model';
+import { async } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-view',
   templateUrl: './dashboard-view.component.html',
-  styleUrls: ['./dashboard-view.component.css']
+  styleUrls: ['./dashboard-view.component.css'],
 })
 export class DashboardViewComponent implements OnInit {
-
-  //TO-DO: Find a way to pass the user object from the sidenav to this view. Although this accepts an input
+  isDataFetched: boolean = false;
 
   @Input() user: User = {
     id: 1,
@@ -21,23 +22,46 @@ export class DashboardViewComponent implements OnInit {
     avatar: '',
   };
 
+  transactions: Transaction[] = [];
 
-  constructor(private transactionService: TransactionService, private userService: UserService) { }
+  constructor(
+    private transactionService: TransactionService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.getUserPreferences();
+    this.getTransactions();
+    this.isDataFetched = true;
+    // Porque no se actualiza este array DIOS MIO?
+    console.log(this.transactions);
   }
 
   getTransactions() {
-   if(window.innerWidth > 1170) {
-    this.transactionService.getTransactions().subscribe((data : any) => {
-      console.log(data);
-    });
-   }
+    if (window.innerWidth >= 1920 && window.innerHeight >= 1080) {
+      this.transactionService.getPaginatedTransactions(5).subscribe((data) => {
+        return data;
+      });
+    } else if (window.innerWidth >= 1366 && window.innerHeight >= 768) {
+      this.transactionService.getPaginatedTransactions(4).subscribe((data) => {
+        
+        return data;
+      });
+    } else if (window.innerWidth >= 390 && window.innerHeight >= 844) {
+      this.transactionService.getPaginatedTransactions(3).subscribe((data) => {
+        
+        return data;
+      });
+    } else if (window.innerWidth >= 375 && window.innerHeight >= 667) {
+      this.transactionService.getPaginatedTransactions(2).subscribe((data) => {
+      
+        return data;
+      });
+    }
   }
 
   getUserPreferences() {
-    this.userService.getUserPreferences().subscribe((data : any) => {
+    this.userService.getUserPreferences().subscribe((data: any) => {
       this.user.name = data.user.name;
       this.user.username = data.user.username;
       this.user.email = data.user.email;
@@ -45,5 +69,4 @@ export class DashboardViewComponent implements OnInit {
       this.user.id = data.user.id;
     });
   }
-
 }

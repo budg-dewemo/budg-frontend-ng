@@ -19,7 +19,16 @@ const routes: Routes = [
   {
     path: 'transactions',
     canActivate: [AuthGuard],
-    component: TransactionListComponent
+    children: [
+      {
+        path: '',
+        component: TransactionListComponent
+      },
+      {
+        path: ':id',
+        component: DashboardViewComponent
+      }
+    ]
   },
   {
     path: 'reports',
