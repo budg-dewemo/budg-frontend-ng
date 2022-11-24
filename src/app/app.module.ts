@@ -2,7 +2,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -17,7 +17,8 @@ import { MatOption, MatOptionModule, MatNativeDateModule } from '@angular/materi
 import {MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatDividerModule } from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { NgChartsModule } from 'ng2-charts';
@@ -56,6 +57,7 @@ import { SetBudgetButtonComponent } from './components/settings/set-budget/set-b
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { IndividualTransactionViewComponent } from './components/transactions/individual-transaction/individual-transaction-view/individual-transaction-view.component';
+import { ConfirmationModalComponent } from './components/transactions/individual-transaction/confirmation-modal/confirmation-modal.component';
 
 
 @NgModule({
@@ -89,6 +91,7 @@ import { IndividualTransactionViewComponent } from './components/transactions/in
     SetBudgetFormComponent,
     SetBudgetButtonComponent,
     IndividualTransactionViewComponent,
+    ConfirmationModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +116,7 @@ import { IndividualTransactionViewComponent } from './components/transactions/in
     MatDividerModule,
     MatProgressSpinnerModule,
     InfiniteScrollModule,
+    MatDialogModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

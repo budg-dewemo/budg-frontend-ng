@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TransactionService } from 'src/app/services/transaction.service';
@@ -6,17 +6,14 @@ import { Category } from 'src/app/models/category.model';
 import { ObservableLike } from 'rxjs';
 import { Transaction } from 'src/app/models/transaction.model';
 import { UserService } from 'src/app/services/user.service';
-
+import { ToastNotifComponent } from '../../toast-notif/toast-notif.component';
 
 @Component({
   selector: 'app-expense-input',
   templateUrl: './expense-input.component 2.html',
   styleUrls: ['./expense-input.component 2.css'],
 })
-
-
-export class ExpenseInputComponent implements OnInit { 
-
+export class ExpenseInputComponent implements OnInit {
   isLoading: boolean = false;
 
   currentBudgetId: number = 0;
@@ -34,13 +31,14 @@ export class ExpenseInputComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private transactionService: TransactionService,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+  ) {}
+
+  @ViewChild(ToastNotifComponent) toastNotif!: ToastNotifComponent;
 
   ngOnInit(): void {
     this.getCategories();
     this.getCurrentBudgetId();
-
 
     console.log('current budget id', this.currentBudgetId);
 
@@ -71,10 +69,15 @@ export class ExpenseInputComponent implements OnInit {
     console.log('transaction', transaction);
 
     this.transactionService.addTransaction(transaction).subscribe((res) => {
-      console.log(res);
+      if (res.status === 201) {
+        console.log('response', res);
+        this.isLoading = false;
+        this.toastNotif.openSuccessSnackBar('Transaction added successfully!');
+      } else {
+        this.toastNotif.openFailureSnackBar('Oops! Something went wrong!');
+      }
     });
 
-    this.isLoading = false;
     this.expenseForm.reset();
   }
 
@@ -89,18 +92,9 @@ export class ExpenseInputComponent implements OnInit {
   getCurrentBudgetId() {
     this.userService.getUserPreferences().subscribe((res: any) => {
       console.log(res);
-      
+
       this.currentBudgetId = res.budgetId;
       console.log('res from get current budget id', res.budgetId);
     });
   }
-
-
 }
-
-
-
-
-
-
-

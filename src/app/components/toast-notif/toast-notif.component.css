@@ -1,17 +1,20 @@
 ::ng-deep snack-bar-container.green-snackbar {
 
     background-color: rgba(19, 221, 138, 0.6);
-    font-family: Karla, sans-serif;
     color: white;
-    border-radius: 10pt;
+    border-radius: 5px;
 
-    font-family: 'Karl', 'sans-serif';
+    font-family: 'Karl', 'sans-serif' !important;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 ::ng-deep snack-bar-container.red-snackbar {
-    font-family: Karla, sans-serif;
+    font-family: 'Karl', 'sans-serif';
+    font-size: 20px;
+    font-weight: 600;
+
     color: white;
-    border-radius: 10pt;
+    border-radius: 5px;
     background: #F44336;
-    color: white;
 }
