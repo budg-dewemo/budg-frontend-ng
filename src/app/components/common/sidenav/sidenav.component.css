@@ -27,8 +27,8 @@ mat-sidenav {
   font-size: 2rem;
   color: #fafafa;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 mat-sidenav-container {

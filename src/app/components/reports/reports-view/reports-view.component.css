@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.weekly {
+    margin-right: 10px;
+}
+
 
 @media (max-width: 1068px) {
     .view{
@@ -16,9 +20,7 @@
     .weekly {
         margin-top: 40px;
         margin-bottom: 20px;
-    }
-
-    .monthly {
-
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }

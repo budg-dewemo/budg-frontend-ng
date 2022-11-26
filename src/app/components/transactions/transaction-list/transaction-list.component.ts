@@ -11,9 +11,8 @@ import { PageEvent } from '@angular/material/paginator';
 export class TransactionListComponent implements OnInit {
 
  @Input() transactions: Transaction[] = [];
- page_size: number = 5;
- page_number: number = 1;
- pageSizeOptions = [5, 10, 20, 50];
+ @Input() page_size: number = 6;
+ @Input() page_number: number = 1;
 
   constructor(private transactionService: TransactionService) { }
 
