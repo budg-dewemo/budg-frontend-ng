@@ -1,5 +1,5 @@
-<div class="transaction-list" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-    <div *ngFor="let transaction of transactions" class="transaction">
+<div class="transaction-list">
+    <div *ngFor="let transaction of transactions | paginate:page_size:page_number" class="transaction" >
         <app-transaction [transaction]="transaction" [routerLink]="['/transactions', transaction.id]"></app-transaction>
     </div>
 </div>

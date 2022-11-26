@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Karla', sans-serif !important;
+    color: #2D2A3E !important;
+
+    border-radius: 20px !important;
+
+}
+
+h2 {
+    font-family: 'Karla', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #2D2A3E !important;
+}
+
+.cancel , .delete {
+    font-family: 'Karla', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #2D2A3E !important;
+    border-radius: 10px !important;
+}
+
+.cancel {
+    background-color: #2D2A3E !important;
+    color: white !important;
+    border-radius: 10px !important;
+}

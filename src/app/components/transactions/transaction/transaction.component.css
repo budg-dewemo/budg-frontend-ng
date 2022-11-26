@@ -52,3 +52,11 @@ font-size: 12px;
 line-height: 13px;
 }
 
+.expense {
+  color: #FF6062;
+}
+
+.income {
+  color: #15C9AD;
+}
+

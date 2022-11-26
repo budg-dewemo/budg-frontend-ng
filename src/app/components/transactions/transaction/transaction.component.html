@@ -4,6 +4,7 @@
     </div>
     <div class="tx-info">
         <div class="tx-name">{{ transaction?.description }}</div>
-        <div class="tx-value">${{ transaction?.amount }}</div>
+        <div class="tx-value income" *ngIf="transaction?.type == 'income' ">+${{ transaction?.amount }}</div>
+        <div class="tx-value expense" *ngIf="transaction?.type == 'expense'">-${{ transaction?.amount }}</div>
     </div>
 </div>
