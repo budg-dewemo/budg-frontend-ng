@@ -26,12 +26,17 @@ export class TransactionService {
   }
 
   addTransaction(transaction: Transaction) {
-    return this.http.post<Transaction>(this.url+'transactions', transaction);
+    return this.http.post<Transaction>(this.url+'transactions', transaction, {observe: 'response'});
   }
 
   getTransactionById(id: number): Observable<Transaction> {
     return this.http.get<Transaction>(this.url+'transactions/'+id);
   }
+
+  deleteTransaction(id: number) {
+    return this.http.delete(this.url+'transactions/'+id, {observe: 'response'});
+  }
+
 
 
 

@@ -70,9 +70,10 @@
     
     <span class="file-selected">Selected file: {{this.expenseForm.value.filePath}}</span>
 
-    <button type="submit" class="add" (click)="addTransaction()">
+    <button type="submit" class="add" (click)="addTransaction()" [disabled]="isLoading">
         <span *ngIf="!isLoading">ADD</span>
         <mat-spinner diameter="20" style="margin:0 auto;" *ngIf="isLoading"></mat-spinner>
     </button>
     
 </form>
+<app-toast-notif></app-toast-notif>

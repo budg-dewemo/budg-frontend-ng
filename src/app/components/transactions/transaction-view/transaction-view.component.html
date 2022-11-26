@@ -1,0 +1,4 @@
+<div class="view">
+    <app-transaction-list [transactions]="transactions"></app-transaction-list>
+    <mat-paginator [length]="transactions.length" [pageSize]="page_size" (page)="handlePage($event)"></mat-paginator>
+</div>

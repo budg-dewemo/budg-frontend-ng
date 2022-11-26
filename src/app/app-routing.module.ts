@@ -1,3 +1,4 @@
+import { TransactionViewComponent } from './components/transactions/transaction-view/transaction-view.component';
 import { IndividualTransactionViewComponent } from './components/transactions/individual-transaction/individual-transaction-view/individual-transaction-view.component';
 import { ReportsViewComponent } from './components/reports/reports-view/reports-view.component';
 import { NgModule } from '@angular/core';
@@ -23,7 +24,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: TransactionListComponent
+        component: TransactionViewComponent
       },
       {
         path: ':id',

@@ -1,5 +1,6 @@
 <div class="submit">
     <button mat-raised-button class="continue">
-        Save <mat-spinner diameter="20" style="margin:0 auto;" *ngIf="isLoading"></mat-spinner>
+        <span *ngIf="!isLoading">Save</span>
+        <mat-spinner diameter="20" style="margin:0 auto;" *ngIf="isLoading"></mat-spinner>
     </button>
 </div>

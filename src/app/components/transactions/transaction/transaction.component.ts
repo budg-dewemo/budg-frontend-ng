@@ -35,10 +35,18 @@ export class TransactionComponent implements OnInit {
       case 4:
         return 'celebration';
       case 5:
-        return 'health_and_safety';
+        return 'lightbulb';
       case 6:
-        return 'shopping_bag';
+        return 'health_and_safety';
       case 7:
+        return 'checkroom';
+      case 8: 
+        return 'school';
+      case 9:
+        return 'savings';
+      case 10:
+        return 'credit_card';
+      case 11:
         return 'receipt_long';
       default:
         return 'question_mark';
@@ -61,6 +69,12 @@ export class TransactionComponent implements OnInit {
         return 'linear-gradient(180deg, #DF51C0 0%, #C546A9 61.98%, #792667 100%)';
       case 7:
         return 'linear-gradient(180deg, #40A5E8 0%, #3FA5E8 54.17%, #0A69A8 100%)';
+      case 8: 
+        return 'linear-gradient(180deg, #FF6062 0%, #FF6062 54.17%, #D22C2E 100%)';
+      case 9:
+        return 'linear-gradient(180deg, #D36CEB 0%, #D36CEB 54.17%, #A03EB3 100%)';
+      case 10:
+        return 'linear-gradient(180deg, #15C9AD 0%, #15C9AD 54.17%, #0A8C6F 100%)';
       default:
         return 'linear-gradient(180deg, #51DFC6 0%, #43C0AA 61.98%, #1E7C6C 100%)';
     }

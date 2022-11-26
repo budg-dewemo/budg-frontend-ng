@@ -1,21 +1,21 @@
 import { TransactionService } from 'src/app/services/transaction.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { Transaction } from '../../../models/transaction.model';
+import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Transaction } from 'src/app/models/transaction.model';
 
 @Component({
-  selector: 'app-transaction-list',
-  templateUrl: './transaction-list.component 2.html',
-  styleUrls: ['./transaction-list.component.css']
+  selector: 'app-transaction-view',
+  templateUrl: './transaction-view.component.html',
+  styleUrls: ['./transaction-view.component.css']
 })
-export class TransactionListComponent implements OnInit {
-
- @Input() transactions: Transaction[] = [];
- page_size: number = 5;
- page_number: number = 1;
- pageSizeOptions = [5, 10, 20, 50];
+export class TransactionViewComponent implements OnInit {
 
   constructor(private transactionService: TransactionService) { }
+
+  transactions: Transaction[] = [];
+  page_size: number = 5;
+  page_number: number = 1;
+  pageSizeOptions = [5, 10, 20, 50];
 
   ngOnInit(): void {
     this.getTransactions();
@@ -31,8 +31,5 @@ export class TransactionListComponent implements OnInit {
     this.page_size = e.pageSize;
     this.page_number = e.pageIndex + 1;
   }
-
-
-  
 
 }
