@@ -5,8 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,7 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider'; 
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 import { NgChartsModule } from 'ng2-charts';
 
@@ -41,7 +39,6 @@ import { LoginCommponentComponent } from './components/login/login-component/log
 import { InputLoginComponent } from './components/login/input-login/input-login.component';
 import { SignInButtonComponent } from './components/login/sign-in-button/sign-in-button.component';
 import { ToastNotifComponent } from './components/toast-notif/toast-notif.component';
-
 import { AuthInterceptor } from './auth.interceptor';
 import { SidenavComponent } from './components/common/sidenav/sidenav.component';
 import { SettingsViewComponent } from './components/settings/settings-view/settings-view.component';
@@ -53,11 +50,12 @@ import { BudgetSettingsComponent } from './components/settings/settings-view/bud
 import { SetBudgetViewComponent } from './components/settings/set-budget/set-budget-view/set-budget-view.component';
 import { SetBudgetFormComponent } from './components/settings/set-budget/set-budget-input/set-budget-input.component';
 import { SetBudgetButtonComponent } from './components/settings/set-budget/set-budget-button/set-budget-button.component';
-//import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
-
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { IndividualTransactionViewComponent } from './components/transactions/individual-transaction/individual-transaction-view/individual-transaction-view.component';
 import { ConfirmationModalComponent } from './components/transactions/individual-transaction/confirmation-modal/confirmation-modal.component';
+import { PaginatePipe } from './pipes/paginate.pipe';
+
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { TransactionViewComponent } from './components/transactions/transaction-view/transaction-view.component';
 
 
 @NgModule({
@@ -92,6 +90,8 @@ import { ConfirmationModalComponent } from './components/transactions/individual
     SetBudgetButtonComponent,
     IndividualTransactionViewComponent,
     ConfirmationModalComponent,
+    PaginatePipe,
+    TransactionViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,6 +117,7 @@ import { ConfirmationModalComponent } from './components/transactions/individual
     MatProgressSpinnerModule,
     InfiniteScrollModule,
     MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

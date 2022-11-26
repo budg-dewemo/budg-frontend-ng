@@ -132,6 +132,8 @@
 
     grid-row-end: 3;
     grid-column-end: 6;
+
+    margin-right: 0px;
   }
   
   #item-4 {
@@ -149,6 +151,11 @@
 
   .welcome {
     font-size: 40px;
+  }
+
+  h5 {
+    margin-top: 20px;
+    margin-bottom: 0px;
   }
 }
 

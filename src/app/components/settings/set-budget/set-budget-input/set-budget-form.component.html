@@ -14,10 +14,9 @@
       />
     </div>
   </div>
-  <app-set-budget-button (click)="setBudget()"></app-set-budget-button>
+  <app-set-budget-button (click)="setBudget()" [isLoading]="isLoading"></app-set-budget-button>
 </form>
 
-<!-- [disabled]="isLoading" (click)="signIn()" -->
 
 
   

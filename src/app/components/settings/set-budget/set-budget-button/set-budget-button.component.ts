@@ -7,9 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SetBudgetButtonComponent implements OnInit {
 
-  isLoading: boolean = false;
-
-  @Input() budget?: number;
+  @Input() isLoading: boolean = false;
 
   constructor() { }
 

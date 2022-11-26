@@ -1,8 +1,10 @@
 import { BudgetService } from './../../../../services/budget.service';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as moment from 'moment';
 import { Budget } from 'src/app/models/budget.model';
+import { ToastNotifComponent } from 'src/app/components/toast-notif/toast-notif.component';
+
 
 @Component({
   selector: 'app-set-budget-form',
@@ -21,6 +23,8 @@ export class SetBudgetFormComponent implements OnInit {
     endDate:  '',
     name: '',
   };
+
+  @ViewChild(ToastNotifComponent) toastNotif!: ToastNotifComponent;
 
   constructor(private formBuilder: FormBuilder, private budgetService: BudgetService) {
     this.budgetForm = this.formBuilder.group({
@@ -42,6 +46,7 @@ export class SetBudgetFormComponent implements OnInit {
 
   setBudget() {
     this.isLoading = true;
+
     const budget: Budget = {
       name: 'Current budget',
       amount: this.budgetForm.value.amount,
@@ -49,12 +54,14 @@ export class SetBudgetFormComponent implements OnInit {
       endDate: moment().add(1, 'month').format('YYYY-MM-DD'),
     };
     
-    console.log('budget', budget);
-
-
     this.budgetService.setBudget(budget).subscribe((res) => {
-      console.log('response', res);
-      this.isLoading = false;
+      if (res.status === 201) {
+        this.isLoading = false;
+        this.toastNotif.openSuccessSnackBar('New budget set successfully!');
+      } else {
+        this.isLoading = false;
+        this.toastNotif.openFailureSnackBar('Failed to set new budget');
+      }      
     });
   }
 }

@@ -17,6 +17,6 @@ export class BudgetService {
   }
 
   setBudget(budget: Budget) {
-    return this.http.post<Budget>(this.url+'budget', budget);
+    return this.http.post<Budget>(this.url+'budget', budget, {observe: 'response'});
   }
 }
