@@ -1,0 +1,25 @@
+.view{
+    max-height: calc(100vh - 65px);
+    overflow: auto;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+::ng-deep .mat-paginator-container {
+    background-color: #fafafa;
+}
+
+::ng-deep .mat-paginator-page-size{
+    display:none;
+}
+
+::ng-deep .mat-paginator-range-label{
+    font-family: 'Karla', sans-serif
+}
+

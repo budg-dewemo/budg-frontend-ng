@@ -60,15 +60,17 @@
         </div>
     </div>
 
-    <div class="expense file-input">
-        <input id="file-upload" multiple type="file" formControlName="filePath" title="Upload file" accept="image/jpeg, image/png, image/jpg"/>
-        <label for="file-upload" class="file-btn">
-            <div class="add-file"><mat-icon class="add-icon">add</mat-icon></div>
-           Upload image
-        </label>
-    </div>
+    <form action="" [formGroup]="fileForm">
+        <div class="expense file-input">
+            <input id="file-upload" multiple type="file" formControlName="file" title="Upload file" accept="image/jpeg, image/png, image/jpg" (change)="onFileSelect($event)"/>
+            <label for="file-upload" class="file-btn">
+                <div class="add-file"><mat-icon class="add-icon">add</mat-icon></div>
+               Upload image
+            </label>
+        </div>
+    </form>
     
-    <span class="file-selected">Selected file: {{this.expenseForm.value.filePath}}</span>
+    <span class="file-selected">Selected file: {{this.fileForm.value.file}}</span>
 
     <button type="submit" class="add" (click)="addTransaction()" [disabled]="isLoading">
         <span *ngIf="!isLoading">ADD</span>

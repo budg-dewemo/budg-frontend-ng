@@ -267,3 +267,7 @@ mat-form-field .exp-input{
     padding: 0 0 0 0;
   }
   }
+
+  ::ng-deep .mat-calendar, .mat-calendar-controls {
+    font-family: 'Karla', sans-serif;
+  }

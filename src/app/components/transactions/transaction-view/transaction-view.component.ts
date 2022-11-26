@@ -13,7 +13,7 @@ export class TransactionViewComponent implements OnInit {
   constructor(private transactionService: TransactionService) { }
 
   transactions: Transaction[] = [];
-  page_size: number = 5;
+  page_size: number = 6;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50];
 

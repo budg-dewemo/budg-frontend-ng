@@ -1,4 +1,10 @@
-import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TransactionService } from 'src/app/services/transaction.service';
@@ -19,6 +25,7 @@ export class ExpenseInputComponent implements OnInit {
   currentBudgetId: number = 0;
 
   expenseForm: FormGroup = new FormGroup({});
+  fileForm: FormGroup = new FormGroup({});
 
   transactionTypes: Array<any> = [
     { value: 'expense', name: 'Expense' },
@@ -31,7 +38,7 @@ export class ExpenseInputComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private transactionService: TransactionService,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   @ViewChild(ToastNotifComponent) toastNotif!: ToastNotifComponent;
@@ -49,7 +56,10 @@ export class ExpenseInputComponent implements OnInit {
       description: ['', Validators.required],
       categoryId: ['', Validators.required],
       date: ['', Validators.required],
-      filePath: ['', Validators.required],
+    });
+
+    this.fileForm = this.formBuilder.group({
+      file: [null, Validators.required],
     });
   }
 
@@ -63,16 +73,30 @@ export class ExpenseInputComponent implements OnInit {
       description: this.expenseForm.value.description,
       categoryId: this.expenseForm.value.categoryId,
       date: this.expenseForm.value.date.toISOString().split('T')[0],
-      filePath: this.expenseForm.value.filePath,
+      filePath: '',
     };
-
-    console.log('transaction', transaction);
 
     this.transactionService.addTransaction(transaction).subscribe((res) => {
       if (res.status === 201) {
-        console.log('response', res);
-        this.isLoading = false;
-        this.toastNotif.openSuccessSnackBar('Transaction added successfully!');
+        const id = res.body?.id;
+        const formData = new FormData();
+        formData.append('file', this.fileForm.get('file')?.value);
+
+        this.transactionService
+          .putTransactionImage(formData, id)
+          .subscribe((res) => {
+            console.log('put res', res);
+            
+            if (res.status === 200) {
+              this.isLoading = false;
+              this.toastNotif.openSuccessSnackBar(
+                'Transaction added successfully!'
+              );
+            } else {
+              this.isLoading = false;
+              this.toastNotif.openFailureSnackBar('Something went wrong!');
+            }
+          });
       } else {
         this.toastNotif.openFailureSnackBar('Oops! Something went wrong!');
       }
@@ -96,5 +120,13 @@ export class ExpenseInputComponent implements OnInit {
       this.currentBudgetId = res.budgetId;
       console.log('res from get current budget id', res.budgetId);
     });
+  }
+
+  onFileSelect(event: any) {
+    console.log(event.target.files[0].name); //myFile.txt
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.fileForm.get('file')?.setValue(file);
+    }
   }
 }

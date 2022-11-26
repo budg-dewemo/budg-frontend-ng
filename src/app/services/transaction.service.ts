@@ -37,6 +37,10 @@ export class TransactionService {
     return this.http.delete(this.url+'transactions/'+id, {observe: 'response'});
   }
 
+  putTransactionImage(formdata: FormData, id: number | undefined) {
+    return this.http.put<FormData>(this.url+'transactions/putfile?id='+id, formdata, {observe: 'response'});
+  }
+
 
 
 
