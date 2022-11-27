@@ -181,7 +181,7 @@ mat-icon {
   }
 }
 
-@media screen and (max-width: 1470px) and (min-width: 900px){
+@media screen and (max-width: 1470px) and (min-width: 920px){
   .component {
     min-height: 300px;
   }
@@ -241,62 +241,3 @@ mat-icon {
   }
 }
 
-/* @media screen and (max-width: 370px) and (min-width: 200px){
-  .component {
-    min-height: 200px;
-  }
-  .bkg-card {
-    width: 290px;
-    height: 157px;
-  }
-
-  .balance-card {
-    width: 290px;
-    height: 157px;
-    left: 40px;
-    top: -127px;
-  }
-
-  .current-balance{
-    padding-bottom: 30px;
-  }
-
-  .current-balance-text {
-    font-size: 20px;
-    line-height: 23px;
-  }
-
-  .current-balance-value {
-    font-size: 70px;
-    line-height: 69px;
-  }
-
-  .income-expenses {   
-    width: 406px;
-    height: 49px;
-  }
-
-  .icon-circle {
-    width: 39px;
-    height: 39px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .mat-icon {
-    font-size: 25px;
-  }
-
-  .text {
-    font-size: 18px;
-  }
-
-  .value {
-    font-size: 14px;
-  }
-
-  .text-group {
-    padding-left: 10px;
-  }
-} */

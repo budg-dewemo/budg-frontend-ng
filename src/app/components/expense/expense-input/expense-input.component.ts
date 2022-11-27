@@ -25,6 +25,8 @@ export class ExpenseInputComponent implements OnInit {
   expenseForm: FormGroup = new FormGroup({});
   fileForm: FormGroup = new FormGroup({});
 
+  fileHolder: File = new File([], '');
+
   transactionTypes: Array<any> = [
     { value: 'expense', name: 'Expense' },
     { value: 'income', name: 'Income' },
@@ -77,7 +79,10 @@ export class ExpenseInputComponent implements OnInit {
       if (res.status === 201) {
         const id = res.body?.id;
         const formData = new FormData();
-        formData.append('file', this.fileForm.get('file')?.value);
+        formData.append('file', this.fileHolder, this.fileHolder.name);
+        console.table(formData.get('file'));
+        
+        
 
         this.transactionService
           .putTransactionImage(formData, id)
@@ -117,8 +122,7 @@ export class ExpenseInputComponent implements OnInit {
 
   onFileSelect(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.fileForm.get('file')?.setValue(file);
+      this.fileHolder = event.target.files[0];
     }
   }
 }
