@@ -78,8 +78,7 @@ export class WeekSpendingsComponent implements OnInit {
  
 
   getChartData() {
-    this.reportService.getCategoryReport().subscribe((data: any) => {
-      console.log('data', data);    
+    this.reportService.getCategoryReport().subscribe((data: any) => {   
       this.pieChartLabels = data.chartData.labels;
       this.pieChartDatasets[0].data = data.chartData.data;
       this.isDataLoaded = true;

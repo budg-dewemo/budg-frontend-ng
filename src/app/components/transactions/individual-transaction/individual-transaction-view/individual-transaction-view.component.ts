@@ -80,8 +80,6 @@ export class IndividualTransactionViewComponent implements OnInit {
       this.transaction.filePath = data.filePath;
       this.transaction.budgetId = data.budgetId;
     });
-
-    console.log(this.transaction);
     
 
     if (this.transaction.filePath != ' ') {
@@ -93,10 +91,6 @@ export class IndividualTransactionViewComponent implements OnInit {
   openConfirmationModal() {
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
       data: {id: this.transactionId}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 

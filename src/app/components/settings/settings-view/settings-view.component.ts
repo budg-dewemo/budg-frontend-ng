@@ -35,7 +35,6 @@ export class SettingsViewComponent implements OnInit {
       this.user.avatar = data.user.avatar;
       this.user.id = data.user.id;
       this.fetched = true;
-      console.log(this.user);    
     });
   }
 }

@@ -20,7 +20,6 @@ export class AccountSettingsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.user);
     
   }
 

@@ -17,8 +17,6 @@ export class AddButtonComponent implements AfterViewInit{
 
   ngAfterViewInit(): void {
     this.form = this.child.expenseForm;
-    console.log(this.form);
-    
   }
 
 

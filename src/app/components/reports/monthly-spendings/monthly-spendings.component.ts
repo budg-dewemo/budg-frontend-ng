@@ -116,11 +116,9 @@ export class MonthlySpendingsComponent implements OnInit {
     this.getChartData();  
 
     if (this.router.url === '/dashboard') {
-      this.isDashboard = true;
-      console.log('isDashboard', this.isDashboard);   
+      this.isDashboard = true;  
     } else {
-      this.isDashboard = false;
-      console.log('isDashboard', this.isDashboard);   
+      this.isDashboard = false; 
     }
   }
 

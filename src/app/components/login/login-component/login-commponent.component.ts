@@ -15,12 +15,10 @@ export class LoginCommponentComponent implements OnInit {
 
   onUsernameInput(value: string) {
     this.username = value;
-    console.log(value);
   }
 
   onPasswordInput(value: string) {
     this.password = value;
-    console.log(value);
   }
 
 }

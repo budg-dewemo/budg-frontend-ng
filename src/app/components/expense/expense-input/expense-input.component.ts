@@ -45,8 +45,6 @@ export class ExpenseInputComponent implements OnInit {
     this.getCategories();
     this.getCurrentBudgetId();
 
-    console.log('current budget id', this.currentBudgetId);
-
     this.expenseForm = this.formBuilder.group({
       budgetId: [this.currentBudgetId, Validators.required],
       amount: ['', Validators.required],
@@ -73,8 +71,6 @@ export class ExpenseInputComponent implements OnInit {
       date: this.expenseForm.value.date.toISOString().replace(/T/, ' ').replace(/\..+/, ''),
       filePath: '',
     };
-
-    console.log('transaction', transaction);
     
 
     this.transactionService.addTransaction(transaction).subscribe((res) => {
@@ -86,7 +82,6 @@ export class ExpenseInputComponent implements OnInit {
         this.transactionService
           .putTransactionImage(formData, id)
           .subscribe((res) => {
-            console.log('put res', res);
             
             if (res.status === 200) {
               this.isLoading = false;
@@ -116,15 +111,11 @@ export class ExpenseInputComponent implements OnInit {
 
   getCurrentBudgetId() {
     this.userService.getUserPreferences().subscribe((res: any) => {
-      console.log(res);
-
       this.currentBudgetId = res.budgetId;
-      console.log('res from get current budget id', res.budgetId);
     });
   }
 
   onFileSelect(event: any) {
-    console.log(event.target.files[0].name); //myFile.txt
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.fileForm.get('file')?.setValue(file);

@@ -17,8 +17,6 @@ export class ConfirmationModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.transactionId = this.data.id;
-    console.log(this.transactionId);
-    
   }
 
   deleteTransaction() {

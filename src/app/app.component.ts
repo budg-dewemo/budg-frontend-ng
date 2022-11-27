@@ -19,6 +19,12 @@ export class AppComponent implements OnInit {
     return this.router.url === '/';
   }
 
+  isSignUpRoute() {
+    return this.router.url === '/sign-up';
+  }
+
+  
+
   logUserOut() {  
     if (this.authService.isLoggedOut()) {
       this.router.navigate(['/']);

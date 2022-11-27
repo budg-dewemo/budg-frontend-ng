@@ -56,6 +56,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { TransactionViewComponent } from './components/transactions/transaction-view/transaction-view.component';
+import { SignUpViewComponent } from './components/login/sign-up/sign-up-view/sign-up-view.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { TransactionViewComponent } from './components/transactions/transaction-
     ConfirmationModalComponent,
     PaginatePipe,
     TransactionViewComponent,
+    SignUpViewComponent,
   ],
   imports: [
     BrowserModule,
