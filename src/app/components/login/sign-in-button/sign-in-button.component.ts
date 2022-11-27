@@ -23,23 +23,27 @@ export class SignInButtonComponent implements OnInit {
 
   constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {}
+
+  enableButton() {
+    if (this.username && this.password) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   signIn() {
     this.isLoading = true;
-    this.authService
-      .login(this.username, this.password)
-      .subscribe((res) => {        
-        if (this.authService.isLoggedIn()) {        
-          this.isLoading = false;
-          this.notif.openSuccessSnackBar('Logged in successfully');
-          this.router.navigate(['/dashboard']);
-        } else if (res ) {         
-          this.isLoading = false;
-          this.notif.openFailureSnackBar('Invalid credentials');
-        }
-      });
+    this.authService.login(this.username, this.password).subscribe((res) => {
+      if (this.authService.isLoggedIn()) {
+        this.isLoading = false;
+        this.notif.openSuccessSnackBar('Logged in successfully');
+        this.router.navigate(['/dashboard']);
+      } else if (res.status === 401) {
+        this.isLoading = false;
+        this.notif.openFailureSnackBar('Invalid credentials');
+      }
+    });
   }
 }

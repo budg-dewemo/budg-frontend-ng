@@ -54,14 +54,14 @@ export class SignUpViewComponent implements OnInit {
 
       const signUpData = {
         name: this.signUpForm.value.name,
-        last_name: this.signUpForm.value.last_name,
+        lastName: this.signUpForm.value.last_name,
         username: this.signUpForm.value.username,
         email: this.signUpForm.value.email,
         password: this.signUpForm.value.password,
       };
 
 
-      this.authService.signUp(signUpData.name, signUpData.last_name, signUpData.username, signUpData.email, signUpData.password).subscribe((res) => {
+      this.authService.signUp(signUpData.name, signUpData.lastName, signUpData.username, signUpData.email, signUpData.password).subscribe((res) => {
         if (res.status === 201 || res.status === 200) {     
           this.isLoading = false;    
           this.router.navigate(['/']);

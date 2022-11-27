@@ -60,3 +60,20 @@ line-height: 13px;
   color: #15C9AD;
 }
 
+@media screen and (max-width: 340px) {
+  .transaction{
+    width: 300px;
+    height: 80px;
+  }
+
+  .tx-category{
+    width: 45px;
+    height: 45px;
+  }
+
+  .tx-name{
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 600;
+  }
+}

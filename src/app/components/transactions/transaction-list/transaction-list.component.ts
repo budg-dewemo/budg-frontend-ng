@@ -11,13 +11,12 @@ import { PageEvent } from '@angular/material/paginator';
 export class TransactionListComponent implements OnInit {
 
  @Input() transactions: Transaction[] = [];
- @Input() page_size: number = 6;
+ @Input() page_size: number = 5;
  @Input() page_number: number = 1;
 
   constructor(private transactionService: TransactionService) { }
 
   ngOnInit(): void {
-    this.getTransactions();
   }
 
   getTransactions() {

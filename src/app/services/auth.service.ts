@@ -27,8 +27,8 @@ export class AuthService {
     
   }
 
-  signUp(name: string, last_name: string, username: string, email: string, password: string) {
-    return this.http.post<any>(this.signUpUrl, { name, last_name, username, email, password }, {observe: 'response'});
+  signUp(name: string, lastName: string, username: string, email: string, password: string) {
+    return this.http.post<any>(this.signUpUrl, { name, lastName, username, email, password }, {observe: 'response'});
   }
 
   private setSession(authResult: any) {  
