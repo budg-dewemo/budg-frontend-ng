@@ -266,6 +266,10 @@ mat-form-field .exp-input{
   .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex .mat-form-field-infix {
     padding: 0 0 0 0;
   }
+
+  .description{
+    height: 20px;
+  }
   }
 
   ::ng-deep .mat-calendar, .mat-calendar-controls {
