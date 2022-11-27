@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BudgetService } from './../../../../services/budget.service';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -26,7 +27,7 @@ export class SetBudgetFormComponent implements OnInit {
 
   @ViewChild(ToastNotifComponent) toastNotif!: ToastNotifComponent;
 
-  constructor(private formBuilder: FormBuilder, private budgetService: BudgetService) {
+  constructor(private formBuilder: FormBuilder, private budgetService: BudgetService, private router: Router) {
     this.budgetForm = this.formBuilder.group({
       amount: ['', Validators.required]
     });
@@ -45,7 +46,7 @@ export class SetBudgetFormComponent implements OnInit {
 
   setBudget() {
     this.isLoading = true;
-
+    
     const budget: Budget = {
       name: 'Current budget',
       amount: this.budgetForm.value.amount,
@@ -56,7 +57,8 @@ export class SetBudgetFormComponent implements OnInit {
     this.budgetService.setBudget(budget).subscribe((res) => {
       if (res.status === 201) {
         this.isLoading = false;
-        this.toastNotif.openSuccessSnackBar('New budget set successfully!');
+        // this.toastNotif.openSuccessSnackBar('New budget set successfully!');
+        this.router.navigate(['/dashboard']);
       } else {
         this.isLoading = false;
         this.toastNotif.openFailureSnackBar('Failed to set new budget');

@@ -101,3 +101,14 @@ input::placeholder{
     font-size: 10px;
     color: red;
 }
+
+.footer {
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #8087F1;
+}

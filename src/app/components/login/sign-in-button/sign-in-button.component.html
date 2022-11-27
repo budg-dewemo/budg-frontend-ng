@@ -1,4 +1,4 @@
-<button mat-raised-button class="sign-in-button" [disabled]="isLoading" (click)="signIn()"> 
+<button mat-raised-button class="sign-in-button" [disabled]="isLoading || !enableButton()" (click)="signIn()"> 
      <span *ngIf="!isLoading">Sign In</span> 
      <mat-spinner diameter="20" style="margin:0 auto;" *ngIf="isLoading"></mat-spinner>
 </button>
