@@ -10,6 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   private url = 'https://budg-api.nicocartalla.com/api/v1/authenticate';
+  private signUpUrl = 'https://budg-api.nicocartalla.com/api/v1/signup';
 
   private httpOptions = {
     headers: {
@@ -24,6 +25,10 @@ export class AuthService {
       // catchError(this.handleError)
     );    
     
+  }
+
+  signUp(name: string, last_name: string, username: string, email: string, password: string) {
+    return this.http.post<any>(this.signUpUrl, { name, last_name, username, email, password }, {observe: 'response'});
   }
 
   private setSession(authResult: any) {  

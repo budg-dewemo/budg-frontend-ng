@@ -39,7 +39,6 @@ export class SetBudgetFormComponent implements OnInit {
 
   getBudget() {
     this.budgetService.getCurrentBudget().subscribe((budget) => {
-      console.log('budget', budget);   
       this.currentBudget.amount = budget.amount;
     });
   }

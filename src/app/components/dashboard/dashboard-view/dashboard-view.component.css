@@ -44,6 +44,9 @@
   font-size: 50px;
   line-height: 58px;
   color: #2d2a3e;
+
+  position: relative;
+  top:20px;
 }
 #item-1 {
   grid-row-start: 1;
@@ -63,6 +66,9 @@
   line-height: 58px;
   color: #2d2a3e;
   margin-left: 20px;
+
+  position: relative;
+  top: 20px;
 }
 #item-2 {
 
@@ -96,9 +102,23 @@
   
 }
 
-.report {
-  max-width: 300px;
-  max-height: 200px;
+.view-all{
+  position: relative;
+  left: 280px;
+
+  width: 57px;
+  height: 17px; 
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+
+  color: #2D2A3E;
+
+  border: none;
+  background: none;
 }
 
 @media screen and (max-width: 920px) {

@@ -7,6 +7,7 @@
       <h5 class="latest">Latest transactions</h5>
     </div>
     <div id="item-2">
+      <button class="view-all" routerLink="/transactions">View all</button>
       <app-transaction-list *ngIf="isDataFetched" [transactions]="transactions"></app-transaction-list>
     </div>
     <div id="item-3">

@@ -55,3 +55,12 @@ html {
     flex-direction: column;
 }
 
+.sign-up{
+    margin-top: 10px;
+}
+
+.sign-up a{
+    color: #8087F1;
+    text-decoration: none;
+}
+

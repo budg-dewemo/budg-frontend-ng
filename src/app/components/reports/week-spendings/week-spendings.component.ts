@@ -2,6 +2,7 @@ import { ReportService } from './../../../services/report.service';
 import { waitForAsync } from '@angular/core/testing';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-week-spendings',
@@ -9,6 +10,8 @@ import { ChartOptions } from 'chart.js';
   styleUrls: ['./week-spendings.component.css']
 })
 export class WeekSpendingsComponent implements OnInit {
+
+  
 
   isDataLoaded: boolean = false;
 
@@ -75,8 +78,7 @@ export class WeekSpendingsComponent implements OnInit {
  
 
   getChartData() {
-    this.reportService.getCategoryReport().subscribe((data: any) => {
-      console.log('data', data);    
+    this.reportService.getCategoryReport().subscribe((data: any) => {   
       this.pieChartLabels = data.chartData.labels;
       this.pieChartDatasets[0].data = data.chartData.data;
       this.isDataLoaded = true;

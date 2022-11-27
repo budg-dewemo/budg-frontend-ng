@@ -1,2 +1,3 @@
 <app-sign-in-view *ngIf="isLoginRoute()"></app-sign-in-view>
-<app-sidenav *ngIf="!isLoginRoute()"></app-sidenav>
+<app-sign-up-view *ngIf="isSignUpRoute()"></app-sign-up-view>
+<app-sidenav *ngIf="!isLoginRoute() && !isSignUpRoute()"></app-sidenav>

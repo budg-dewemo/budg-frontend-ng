@@ -1,3 +1,4 @@
+import { SignUpViewComponent } from './components/login/sign-up/sign-up-view/sign-up-view.component';
 import { TransactionViewComponent } from './components/transactions/transaction-view/transaction-view.component';
 import { IndividualTransactionViewComponent } from './components/transactions/individual-transaction/individual-transaction-view/individual-transaction-view.component';
 import { ReportsViewComponent } from './components/reports/reports-view/reports-view.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: '',
     component: SignInViewComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignUpViewComponent
   },
   {
     path: 'transactions',

@@ -1,18 +1,16 @@
 import {
   Component,
   OnInit,
-  EventEmitter,
-  Output,
   ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { Category } from 'src/app/models/category.model';
-import { ObservableLike } from 'rxjs';
 import { Transaction } from 'src/app/models/transaction.model';
 import { UserService } from 'src/app/services/user.service';
 import { ToastNotifComponent } from '../../toast-notif/toast-notif.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-expense-input',
@@ -47,8 +45,6 @@ export class ExpenseInputComponent implements OnInit {
     this.getCategories();
     this.getCurrentBudgetId();
 
-    console.log('current budget id', this.currentBudgetId);
-
     this.expenseForm = this.formBuilder.group({
       budgetId: [this.currentBudgetId, Validators.required],
       amount: ['', Validators.required],
@@ -72,9 +68,10 @@ export class ExpenseInputComponent implements OnInit {
       type: this.expenseForm.value.type,
       description: this.expenseForm.value.description,
       categoryId: this.expenseForm.value.categoryId,
-      date: this.expenseForm.value.date.toISOString().split('T')[0],
+      date: this.expenseForm.value.date.toISOString().replace(/T/, ' ').replace(/\..+/, ''),
       filePath: '',
     };
+    
 
     this.transactionService.addTransaction(transaction).subscribe((res) => {
       if (res.status === 201) {
@@ -85,7 +82,6 @@ export class ExpenseInputComponent implements OnInit {
         this.transactionService
           .putTransactionImage(formData, id)
           .subscribe((res) => {
-            console.log('put res', res);
             
             if (res.status === 200) {
               this.isLoading = false;
@@ -115,15 +111,11 @@ export class ExpenseInputComponent implements OnInit {
 
   getCurrentBudgetId() {
     this.userService.getUserPreferences().subscribe((res: any) => {
-      console.log(res);
-
       this.currentBudgetId = res.budgetId;
-      console.log('res from get current budget id', res.budgetId);
     });
   }
 
   onFileSelect(event: any) {
-    console.log(event.target.files[0].name); //myFile.txt
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.fileForm.get('file')?.setValue(file);

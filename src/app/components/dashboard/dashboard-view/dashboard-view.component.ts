@@ -30,12 +30,9 @@ export class DashboardViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('window.innerWidth', window.innerWidth);
     this.getUserPreferences();
     this.getTransactions();
     this.isDataFetched = true;
-    // Porque no se actualiza este array DIOS MIO?
-    console.log('transactions on init',this.transactions);
   }
 
   getTransactions() {

@@ -1,0 +1,125 @@
+<html>
+  <div class="glass-container">
+    <div class="header">
+      <h2>Sign up and start saving</h2>
+    </div>
+    <div class="form-container">
+      <form action="" class="form" [formGroup]="signUpForm">
+        <div class="form-item">
+          <label for="name">First Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="John"
+            class="form-control"
+            formControlName="name"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              (signUpFormControl.name.touched || submitted) &&
+              signUpFormControl.name.errors?.required
+            "
+          >
+            Name is required
+          </span>
+        </div>
+        <div class="form-item">
+          <label for="last_name">Last Name</label>
+          <input
+            type="text"
+            name="last_name"
+            id="last_name"
+            class="form-control"
+            placeholder="Doe"
+            formControlName="last_name"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              (signUpFormControl.last_name.touched || submitted) &&
+              signUpFormControl.last_name.errors?.required
+            "
+          >
+            Name is required
+          </span>
+        </div>
+        <div class="form-item">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="form-control"
+            placeholder="johndoe"
+            formControlName="username"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              (signUpFormControl.username.touched || submitted) &&
+              signUpFormControl.username.errors?.required
+            "
+          >
+            Username is required
+          </span>
+        </div>
+        <div class="form-item">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="johndoe@email.com"
+            formControlName="email"
+            email="true"
+          />
+        </div>
+        <span
+          class="text-danger"
+          *ngIf="
+            (signUpFormControl.email.touched || submitted) &&
+            signUpFormControl.email.errors?.required
+          "
+        >
+          Email is required
+        </span>
+        <span
+          class="text-danger"
+          *ngIf="
+            signUpFormControl.email.touched &&
+            signUpFormControl.email.errors?.email
+          "
+        >
+          Enter a valid email address
+        </span>
+        <div class="form-item">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              (signUpFormControl.password.touched || submitted) &&
+              signUpFormControl.password.errors?.required
+            "
+          >
+            Password is required
+          </span>
+        </div>
+        <button mat-raised-button class="sign-up-button" type="submit" (click)="signUp()" [disabled]="!signUpForm.valid || isLoading">
+          <span *ngIf="!isLoading">Sign Up</span>
+          <mat-spinner diameter="20" style="margin:0 auto;" *ngIf="isLoading"></mat-spinner>
+        </button>
+      </form>
+    </div>
+  </div>
+</html>

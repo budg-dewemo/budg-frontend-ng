@@ -3,6 +3,21 @@
     overflow: auto;
 }
 
+.title {
+
+    margin-top: 20px;
+    
+    font-family: "Karla";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+  
+    color: #2d2a3e;
+  
+    
+  }
+
 .footer {
     position: fixed;
     left: 0;

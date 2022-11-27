@@ -14,20 +14,7 @@ export class UserService {
 
   private url = 'https://budg-api.nicocartalla.com/api/v1/';
 
-  // getUserPreferences() {
-  //   console.log('userData', this.userData);
-    
-  //   if (this.userData !== undefined) {
-  //     return this.userData;
-  //   } else {
-  //     this.http.get<any>(this.url + 'userPreferences').subscribe(data => {
-  //       console.log('data', data);     
-  //       this.userData = data;
-  //     });
-  //     }
-  //     console.log(this.userData);      
-  //     return this.userData;
-  //   } 
+ 
 
     getBalance(): Observable<Balance> {
       return this.http.get<any>(this.url + 'balance');
