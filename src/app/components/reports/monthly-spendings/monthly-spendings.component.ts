@@ -2,6 +2,7 @@ import { ReportService } from './../../../services/report.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { Report } from 'src/app/models/report.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-monthly-spendings',
@@ -10,8 +11,9 @@ import { Report } from 'src/app/models/report.model';
 })
 export class MonthlySpendingsComponent implements OnInit {
 
-  constructor(private reportService: ReportService) {}
+  constructor(private reportService: ReportService, private router: Router) {}
 
+  isDashboard: boolean = false;
 
   isDataLoaded: boolean = false;
 
@@ -112,6 +114,14 @@ export class MonthlySpendingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getChartData();  
+
+    if (this.router.url === '/dashboard') {
+      this.isDashboard = true;
+      console.log('isDashboard', this.isDashboard);   
+    } else {
+      this.isDashboard = false;
+      console.log('isDashboard', this.isDashboard);   
+    }
   }
 
   getChartData() {

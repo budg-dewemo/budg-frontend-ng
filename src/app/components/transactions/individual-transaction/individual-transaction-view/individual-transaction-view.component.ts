@@ -13,6 +13,8 @@ import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-m
 })
 export class IndividualTransactionViewComponent implements OnInit {
 
+  hasImage: boolean = false;
+
   private routeSub?: Subscription;
 
   transactionId: number = 0;
@@ -78,6 +80,14 @@ export class IndividualTransactionViewComponent implements OnInit {
       this.transaction.filePath = data.filePath;
       this.transaction.budgetId = data.budgetId;
     });
+
+    console.log(this.transaction);
+    
+
+    if (this.transaction.filePath != ' ') {
+      this.hasImage = true;
+    }
+
   }
 
   openConfirmationModal() {

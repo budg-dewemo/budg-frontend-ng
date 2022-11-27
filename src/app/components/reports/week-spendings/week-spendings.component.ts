@@ -2,6 +2,7 @@ import { ReportService } from './../../../services/report.service';
 import { waitForAsync } from '@angular/core/testing';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ChartOptions } from 'chart.js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-week-spendings',
@@ -9,6 +10,8 @@ import { ChartOptions } from 'chart.js';
   styleUrls: ['./week-spendings.component.css']
 })
 export class WeekSpendingsComponent implements OnInit {
+
+  
 
   isDataLoaded: boolean = false;
 

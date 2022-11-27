@@ -1,18 +1,16 @@
 import {
   Component,
   OnInit,
-  EventEmitter,
-  Output,
   ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { Category } from 'src/app/models/category.model';
-import { ObservableLike } from 'rxjs';
 import { Transaction } from 'src/app/models/transaction.model';
 import { UserService } from 'src/app/services/user.service';
 import { ToastNotifComponent } from '../../toast-notif/toast-notif.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-expense-input',
@@ -72,9 +70,12 @@ export class ExpenseInputComponent implements OnInit {
       type: this.expenseForm.value.type,
       description: this.expenseForm.value.description,
       categoryId: this.expenseForm.value.categoryId,
-      date: this.expenseForm.value.date.toISOString().split('T')[0],
+      date: this.expenseForm.value.date.toISOString().replace(/T/, ' ').replace(/\..+/, ''),
       filePath: '',
     };
+
+    console.log('transaction', transaction);
+    
 
     this.transactionService.addTransaction(transaction).subscribe((res) => {
       if (res.status === 201) {
